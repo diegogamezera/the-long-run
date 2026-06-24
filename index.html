@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0a0807">
+<title>THE LONG RUN — Marshal Channel</title>
+
+<!-- ===== Social preview ===== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="THE LONG RUN">
+<meta property="og:title" content="THE LONG RUN — An Interactive Drama">
+<meta property="og:description" content="An undercover Marshal. A hunted alien chemist. A dragon in a cave that money can't reach. You run him from three jumps away — and one word from you starts the raid.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="An interactive sci-fi noir, Lifeline-style. You run the Marshal. You choose what he does next.">
+<style>
+:root{
+  --bg:#070605;
+  --bg2:#0e0b09;
+  --panel:#13100d;
+  --line:#2a2018;
+  --amber:#e9a23b;
+  --amber-dim:#8a6526;
+  --green:#6fe39a;
+  --green-dim:#2f6a45;
+  --soren:#e9e2d6;
+  --soren-bub:#1c1611;
+  --you:#3a2e1f;
+  --you-text:#f5e8d3;
+  --dim:#6b6055;
+  --red:#e0664f;
+  --violet:#c9a8e0;
+  --glow:0 0 18px rgba(233,162,59,.07);
+  --mono:'SF Mono',ui-monospace,'Cascadia Code','Roboto Mono',Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg);color:var(--soren);font-family:var(--sans);
+  overflow:hidden;position:fixed;width:100%;-webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9;
+  background:radial-gradient(ellipse at 50% 0%,rgba(233,162,59,.06),transparent 55%),
+             radial-gradient(ellipse at 50% 120%,rgba(224,102,79,.05),transparent 60%);
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.35;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,0) 0,rgba(0,0,0,0) 2px,rgba(0,0,0,.22) 3px);
+}
+#app{
+  height:100%;max-width:560px;margin:0 auto;display:flex;flex-direction:column;
+  background:linear-gradient(180deg,var(--bg2),var(--bg));position:relative;
+  border-left:1px solid var(--line);border-right:1px solid var(--line);
+}
+/* HEADER */
+header{
+  flex:0 0 auto;padding:env(safe-area-inset-top) 14px 0;
+  background:linear-gradient(180deg,rgba(19,16,13,.98),rgba(19,16,13,.85));
+  border-bottom:1px solid var(--line);backdrop-filter:blur(8px);position:relative;z-index:5;
+}
+.hbar{display:flex;align-items:center;gap:11px;padding:12px 0 11px}
+.sigil{
+  width:38px;height:38px;flex:0 0 auto;border-radius:9px;position:relative;
+  background:radial-gradient(circle at 35% 30%,#2c2014,#0f0b07);
+  border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;box-shadow:var(--glow);
+}
+.sigil svg{width:22px;height:22px}
+.htxt{flex:1;min-width:0}
+.htxt h1{font-size:14px;font-weight:600;letter-spacing:.3px;color:#e6d6c0;font-family:var(--mono)}
+.htxt .sub{font-size:11px;color:var(--dim);display:flex;align-items:center;gap:6px;margin-top:2px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hbtns{display:flex;gap:4px}
+.iconbtn{
+  width:34px;height:34px;border-radius:8px;border:1px solid transparent;background:transparent;
+  color:var(--dim);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.15s;
+}
+.iconbtn:active{background:var(--line);color:var(--amber)}
+.threat{
+  font-family:var(--mono);font-size:10px;letter-spacing:.5px;padding:3px 0 9px;color:var(--amber-dim);
+  display:flex;justify-content:space-between;border-top:1px dashed rgba(42,32,24,.7);
+}
+.threat b{color:var(--amber);font-weight:600}
+/* CHAT */
+#chat{
+  flex:1;overflow-y:auto;overflow-x:hidden;padding:18px 14px 8px;display:flex;flex-direction:column;gap:13px;
+  scroll-behavior:smooth;-webkit-overflow-scrolling:touch;
+}
+#chat::-webkit-scrollbar{width:0}
+.msg{max-width:84%;animation:rise .42s cubic-bezier(.2,.8,.25,1)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.msg .name{font-size:10.5px;letter-spacing:.6px;margin:0 0 4px 3px;font-family:var(--mono);text-transform:uppercase}
+.bub{padding:11px 14px;border-radius:16px;font-size:15px;line-height:1.5;word-wrap:break-word}
+
+.msg.soren{align-self:flex-start}
+.msg.soren .name{color:var(--amber-dim)}
+.msg.soren .bub{background:var(--soren-bub);border:1px solid #2a2018;border-bottom-left-radius:5px;color:var(--soren)}
+
+.msg.you{align-self:flex-end}
+.msg.you .name{color:var(--amber-dim);text-align:right;margin-right:3px}
+.msg.you .bub{background:var(--you);border:1px solid #5a4528;border-bottom-right-radius:5px;color:var(--you-text)}
+
+.msg.tib{align-self:flex-start;max-width:88%}
+.msg.tib .name{color:var(--green-dim)}
+.msg.tib .bub{
+  background:rgba(15,30,20,.5);border:1px solid var(--green-dim);border-left:3px solid var(--green);
+  border-radius:6px;color:var(--green);font-size:14px;line-height:1.55;font-style:italic;
+}
+.msg.yenna{align-self:flex-start;max-width:86%}
+.msg.yenna .name{color:#7a5e8c}
+.msg.yenna .bub{
+  background:rgba(28,20,34,.5);border:1px dashed #5a4170;border-bottom-left-radius:5px;color:var(--violet);
+}
+.msg.sys{align-self:center;max-width:92%;text-align:center}
+.msg.sys .bub{
+  background:transparent;color:var(--dim);font-family:var(--mono);font-size:11px;letter-spacing:.6px;
+  padding:4px 10px;text-transform:uppercase;
+}
+.msg.sys .bub .ln{display:inline-block;border-top:1px solid var(--line);width:24px;vertical-align:middle;margin:0 8px}
+
+/* typing */
+.typing{align-self:flex-start;padding:11px 16px;background:var(--soren-bub);border:1px solid #2a2018;border-radius:16px;border-bottom-left-radius:5px;display:flex;gap:5px;align-items:center}
+.typing.gr{background:rgba(15,30,20,.5);border-color:var(--green-dim)}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--amber-dim);animation:bounce 1.3s infinite}
+.typing.gr span{background:var(--green-dim)}
+.typing span:nth-child(2){animation-delay:.18s}
+.typing span:nth-child(3){animation-delay:.36s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+
+/* WAIT */
+.waitcard{align-self:center;max-width:94%;text-align:center;margin:6px 0;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:rgba(22,18,14,.6)}
+.waitcard .t{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--amber-dim);text-transform:uppercase}
+.waitcard .clock{font-family:var(--mono);font-size:30px;color:var(--amber);margin:8px 0 4px;letter-spacing:2px;text-shadow:0 0 18px rgba(233,162,59,.3)}
+.waitcard .d{font-size:12px;color:var(--dim)}
+.waitcard .skip{margin-top:13px;font-size:11px;color:var(--amber-dim);text-decoration:underline;cursor:pointer;font-family:var(--mono)}
+
+/* CHOICES */
+#dock{flex:0 0 auto;padding:10px 12px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(7,6,5,0),rgba(7,6,5,.96) 30%);position:relative;z-index:5}
+.choices{display:flex;flex-direction:column;gap:8px}
+.choice{
+  width:100%;text-align:left;padding:13px 15px;border-radius:13px;
+  background:linear-gradient(180deg,#1d160f,#13100b);border:1px solid #3a2c1c;color:#f0e4d2;
+  font-size:14.5px;line-height:1.4;font-family:var(--sans);cursor:pointer;transition:.16s;position:relative;overflow:hidden;
+}
+.choice:active{transform:scale(.985);border-color:var(--amber);background:#241a10}
+.choice::before{content:"›";color:var(--amber);margin-right:9px;font-weight:700}
+.choice.act{border-color:var(--amber-dim)}
+.choice.act::before{content:"⚠";color:var(--amber)}
+.choice.danger.act::before{content:"⚡";color:var(--red)}
+.tapnext{width:100%;padding:13px;border-radius:13px;border:1px dashed var(--line);background:transparent;color:var(--dim);font-family:var(--mono);font-size:12px;letter-spacing:1px;cursor:pointer;transition:.15s;text-transform:uppercase}
+.tapnext:active{color:var(--amber);border-color:var(--amber-dim)}
+
+/* SCREENS */
+.screen{position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 26px;background:radial-gradient(ellipse at 50% 38%,#15100b,#060403);animation:fade .6s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.screen.hide{display:none}
+.bigsigil{width:84px;height:84px;border-radius:20px;margin-bottom:22px;background:radial-gradient(circle at 35% 30%,#2c2014,#0f0b07);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(233,162,59,.12)}
+.bigsigil svg{width:46px;height:46px}
+.screen .kicker{font-family:var(--mono);font-size:11px;letter-spacing:3px;color:var(--amber-dim);text-transform:uppercase;margin-bottom:14px}
+.screen h2{font-size:25px;font-weight:700;letter-spacing:.5px;line-height:1.25;margin-bottom:14px;color:#e9e2d6}
+.screen h2 .acc{color:var(--amber)}
+.screen p{font-size:14.5px;line-height:1.65;color:#a89a8a;max-width:380px;margin-bottom:8px}
+.screen p.quote{font-style:italic;color:var(--amber);border-left:2px solid var(--amber-dim);padding-left:14px;text-align:left;margin:18px 0}
+.btnrow{display:flex;flex-direction:column;gap:10px;margin-top:28px;width:100%;max-width:300px}
+.btn{padding:15px;border-radius:13px;border:1px solid var(--amber-dim);background:linear-gradient(180deg,#27190a,#1a1006);color:var(--amber);font-family:var(--mono);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:.16s;font-weight:600}
+.btn:active{transform:scale(.97);box-shadow:0 0 24px rgba(233,162,59,.18)}
+.btn.ghost{border-color:var(--line);background:transparent;color:var(--dim)}
+.btn.amber{border-color:var(--green-dim);color:var(--green);background:linear-gradient(180deg,#0f1a13,#0a120c)}
+.screen.death{background:radial-gradient(ellipse at 50% 38%,#1a0d0a,#070403)}
+.screen.death .bigsigil{border-color:#4a2018;box-shadow:0 0 40px rgba(224,102,79,.14);background:radial-gradient(circle at 35% 30%,#2a1410,#0a0504)}
+.screen.death .kicker{color:var(--red)}
+.screen.death h2 .acc{color:var(--red)}
+.statline{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:1px;margin-top:6px}
+.chapbanner{align-self:center;text-align:center;margin:10px 0 4px;padding:6px 0;width:100%}
+.chapbanner .n{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--amber-dim);text-transform:uppercase}
+.chapbanner .t{font-size:13px;letter-spacing:1px;color:#9a8a76;margin-top:3px;font-family:var(--mono)}
+.toast{position:absolute;bottom:90px;left:50%;transform:translateX(-50%);z-index:30;background:rgba(30,23,15,.96);border:1px solid var(--amber-dim);color:var(--amber);padding:10px 18px;border-radius:20px;font-family:var(--mono);font-size:11px;letter-spacing:1px;opacity:0;transition:.3s;pointer-events:none;text-transform:uppercase}
+.toast.show{opacity:1;bottom:104px}
+.fade-in{animation:fade .5s}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- TITLE -->
+  <div class="screen" id="titleScreen">
+    <div class="bigsigil">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#e9a23b" stroke-width="1.5">
+        <path d="M3 12 h7 l2 -5 l2 10 l2 -5 h5"/>
+      </svg>
+    </div>
+    <div class="kicker">Secure Channel · Marshal Service</div>
+    <h2>THE LONG <span class="acc">RUN</span></h2>
+    <p>An undercover Marshal, fourteen months in the rim's mud. A hunted alien chemist who carries a cure in her head. A dragon in a cave that money can't reach. You run him from three jumps away — and one word from you starts the raid.</p>
+    <p class="statline">An interactive drama · Lifeline-style</p>
+    <div class="btnrow">
+      <button class="btn" id="btnNew">Open the channel</button>
+      <button class="btn ghost" id="btnContinue" style="display:none">Continue</button>
+    </div>
+    <p class="statline" style="margin-top:26px;opacity:.6">Headphones recommended · Sound <span id="sndState">on</span></p>
+  </div>
+
+  <!-- GAME -->
+  <header id="hdr" style="visibility:hidden">
+    <div class="hbar">
+      <div class="sigil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#e9a23b" stroke-width="1.5"><path d="M3 12 h7 l2 -5 l2 10 l2 -5 h5"/></svg>
+      </div>
+      <div class="htxt">
+        <h1>SOREN HALGRAVE</h1>
+        <div class="sub"><span class="dot" id="statusDot"></span><span id="statusTxt">secure channel · online</span></div>
+      </div>
+      <div class="hbtns">
+        <button class="iconbtn" id="btnSound" title="Sound">♪</button>
+        <button class="iconbtn" id="btnMenu" title="Menu">↺</button>
+      </div>
+    </div>
+    <div class="threat">
+      <span>RELAY: TIB</span>
+      <span id="threatTxt">COVER: <b>INTACT</b></span>
+    </div>
+  </header>
+
+  <div id="chat"></div>
+  <div id="dock"></div>
+  <div class="toast" id="toast"></div>
+
+  <!-- END -->
+  <div class="screen hide" id="endScreen">
+    <div class="bigsigil" id="endSigil"></div>
+    <div class="kicker" id="endKicker"></div>
+    <h2 id="endTitle"></h2>
+    <p id="endBody"></p>
+    <p class="quote" id="endQuote" style="display:none"></p>
+    <div class="btnrow" id="endBtns"></div>
+  </div>
+
+</div>
+
+<script>
+/* ============================================================
+   THE LONG RUN — branching script (EN)
+   Voices: soren | tib | yenna | sys | you(via choice)
+   Node types:
+     messages:[{who,text,delay?,pause?}]
+     choices:[{t,next,act?,danger?,say?}]
+     wait:{secs,title,desc}        Lifeline-style wait
+     auto:nodeId                   tap to continue
+     chapter:{n,t}                 chapter banner
+     checkpoint:true               saves a retry point
+     ending:{kind:'good'|'bad'|'death',...}
+   COVER meter: INTACT | STRAINED | BLOWN
+   ============================================================ */
+const STORY = {
+
+/* ═══════════════ ACT 1 — CINDERHAULT ═══════════════ */
+start:{
+  messages:[
+    {who:'sys',text:'secure channel open · cinderhault station'},
+    {who:'sys',text:'asset: marshal s. halgrave · 14 months deep',delay:700},
+    {who:'soren',text:'You there, Captain? Channel\'s clean. Tib swept it twice.',delay:1100},
+    {who:'tib',text:'I swept it three times. I am a professional. I have a master\'s understanding of fifteen frontier dialects and all of them have a word for "stop micromanaging me."',delay:1700},
+    {who:'soren',text:'Sitting at Ladle\'s on the promenade. Eating a fish. Whole thing, head and all, in a lake of black sauce.',delay:1700},
+    {who:'soren',text:'Slow. Both hands. No clock that can touch me. Fourteen months under teaches you that. Hurry is a tell.',delay:2000,pause:true},
+  ],
+  auto:'a1_promenade'
+},
+a1_promenade:{
+  messages:[
+    {who:'soren',text:'Gorrik\'s still the only rung I\'ve reached. Bottom of the chain. He runs polish through here, kicks his cut up to a buyer nobody\'s ever seen.',delay:2100},
+    {who:'soren',text:'The Smelter. The dragon in the cave. That\'s the face you actually want, Captain. Not mine sitting in fish sauce.',delay:1900},
+    {who:'tib',text:'Tell her about the dignity I have lost to a fish. It\'s relevant. It\'s context.',delay:1400},
+    {who:'soren',text:'Hold on.',delay:900},
+    {who:'soren',text:'Something\'s happening across the promenade. Screaming.',delay:1300,pause:true},
+  ],
+  auto:'a1_dragged'
+},
+a1_dragged:{
+  messages:[
+    {who:'soren',text:'A girl. Senne — violet skin, silver lines running through her like cracks in old glaze. White hair, half loose. Barefoot.',delay:2200},
+    {who:'soren',text:'Somebody\'s put her in a thin silver shift. The kind a house puts on a thing it means to sell.',delay:1900},
+    {who:'soren',text:'Two Khel have her. Big as cargo. Kin-marks tattooed black. One\'s laughing. The crowd\'s parting for them. Nobody on Cinderhault gets rich minding another man\'s cargo.',delay:2500},
+    {who:'tib',text:'Halgrave. Whatever this is, it has a return address. We are fourteen months into the only operation I have never been fired from.',delay:2000,pause:true},
+  ],
+  checkpoint:true,
+  choices:[
+    {t:'Hold. Do not blow fourteen months over a stranger.', say:'I should hold. Fourteen months.', next:'a1_hold', act:true},
+    {t:'Move. Help her.', say:'I\'m moving.', next:'a1_move', act:true},
+  ]
+},
+a1_hold:{
+  messages:[
+    {who:'soren',text:'That\'s the sensible call. The cold one. The one the cartel would make.',delay:1700},
+    {who:'soren',text:'The laughing one just got a hand in her hair. She made a sound that wasn\'t a word.',delay:1700},
+    {who:'soren',text:'...I\'m going to finish the fish first. The good bite. The cheek meat. The one a patient man saves.',delay:2000},
+    {who:'soren',text:'Chewed. Swallowed. Set the chopsticks down square.',delay:1400},
+    {who:'tib',text:'You finished the fish. You absolute monument. You finished the fish and you\'re standing up anyway.',delay:1900,pause:true},
+  ],
+  auto:'a1_move'
+},
+a1_move:{
+  messages:[
+    {who:'soren',text:'I cross the promenade the way water crosses a floor. Finding the low ground.',delay:1700},
+    {who:'soren',text:'Hand on the wrist that holds her hair. One quarter turn. The joint goes past where joints are meant to go.',delay:2000},
+    {who:'soren',text:'Walk the big body into a noodle cart. It folds like a cheap suitcase. The second one reaches for a club — I take it off him and lay it once across the back of the knee.',delay:2500},
+    {who:'soren',text:'Four seconds. I didn\'t hurry.',delay:1300,pause:true},
+    {who:'soren',text:'She\'s looking at me. Not grateful. Calculating. She\'s doing arithmetic on me already.',delay:1900},
+    {who:'yenna',text:'You stupid — you have no idea what you just bought.',delay:1700,pause:true},
+  ],
+  choices:[
+    {t:'"Probably not."', say:'Probably not.', next:'a1_underlevels'},
+    {t:'"Then tell me. Walk. Now."', say:'Then tell me. Walk. Now.', next:'a1_underlevels'},
+  ]
+},
+a1_underlevels:{
+  messages:[
+    {who:'sys',text:'cover strained · face logged into a ledger that does not forgive'},
+    {who:'soren',text:'Got her off the promenade through the back of Ladle\'s, down into the under-levels. The chase fell apart in the dark the way chases do.',delay:2200},
+    {who:'soren',text:'Dead pump room. One buzzing strip-light. Her name\'s Yenna. Yenna Sorrel.',delay:1700},
+    {who:'yenna',text:'Those were Gorrik\'s. You know Gorrik?',delay:1300,pause:true},
+  ],
+  choices:[
+    {t:'"Heard the name."  (keep cover)', say:'Heard the name.', next:'a1_ledger'},
+    {t:'"He runs polish. Reef glass."', say:'He runs polish. Reef glass, right?', next:'a1_ledger'},
+  ]
+},
+a1_ledger:{
+  messages:[
+    {who:'yenna',text:'Reef glass. They drag it up out of the dead sea on Brakkis. Raw, it\'s poison — ride it twice and you\'re done. Junk substance for years. Until somebody learned how to settle it.',delay:2600},
+    {who:'yenna',text:'Refine it so it lays down smooth. So a man can ride it a hundred times and lose a year instead of all of it. That\'s the only thing the Smelter ever wanted to buy. Not the glass. The settling.',delay:2700},
+    {who:'soren',text:'"And Gorrik has the settling."',delay:1300},
+    {who:'yenna',text:'No. Gorrik has me.',delay:1300,pause:true},
+    {who:'soren',text:'There it is, Captain. The girl in the shift isn\'t merchandise. She\'s the ledger.',delay:1900},
+  ],
+  auto:'a1_father'
+},
+a1_father:{
+  messages:[
+    {who:'yenna',text:'My father worked it out. Oren Sorrel. Best chemist on three rims, worst at picking who to work for. Gorrik came to take the method. My father wouldn\'t hand it over.',delay:2600},
+    {who:'yenna',text:'Gorrik lost his temper. He always loses his temper. Killed him in our own kitchen before he had the whole of it. The rest lives in here now.',delay:2400},
+    {who:'yenna',text:'I held the spoons. I know the parts he never wrote down. So Gorrik can\'t kill me, can\'t trust me, can\'t sell me until he\'s wrung the last of it out. So he keeps me. Walks me around.',delay:2700,pause:true},
+    {who:'tib',text:'Oh, I do not like the math on this girl.',delay:1400},
+  ],
+  auto:'a1_brine'
+},
+a1_brine:{
+  chapter:{n:'Chapter Two',t:'The Brine House'},
+  messages:[
+    {who:'soren',text:'Took her to Madame Sezhna at the Brine House. Old woman who knows everything on Cinderhault and sells most of it. She owes me.',delay:2300},
+    {who:'yenna',text:'(behind me, quiet) Six years. He\'s had me six years.',delay:1500},
+    {who:'soren',text:'Sezhna poured three cups without being asked. Says Gorrik put a price on my head an hour ago. Says it\'s not a flattering price — he undervalues me.',delay:2400},
+    {who:'soren',text:'Then she gave me a thing for free, which she never does. There\'s a buyer\'s meet already set. The Smelter\'s people. Dock Nine. Inside the week.',delay:2500,pause:true},
+  ],
+  checkpoint:true,
+  choices:[
+    {t:'"Why are you telling me this for free?"', say:'Why tell me this for free, Sezhna?', next:'a1_sezhna_why'},
+    {t:'"Then I need to be standing on that dock."', say:'Then I need to be standing on that dock when it happens.', next:'a1_gethired'},
+  ]
+},
+a1_sezhna_why:{
+  messages:[
+    {who:'soren',text:'She said the Smelter has eaten three of her best customers\' operations in two years. Bad for the rim. Worse for business.',delay:2100},
+    {who:'yenna',text:'(she\'s watching Sezhna like a card that turned up wrong)',delay:1300},
+    {who:'soren',text:'"I would like the Smelter to choke," she said. "I do not have hands for it. You have hands."',delay:1900,pause:true},
+  ],
+  auto:'a1_gethired'
+},
+a1_gethired:{
+  messages:[
+    {who:'soren',text:'Plan\'s simple, Captain. Get inside Gorrik\'s crew. Get to the meet. Be standing at Dock Nine when the dragon comes down out of the cave.',delay:2400},
+    {who:'soren',text:'I need to get hired.',delay:1100},
+    {who:'tib',text:'You broke two of his men over a girl. Your name is at the very top of his list. He\'ll either kill you or use you. On the rim, the door\'s the same.',delay:2300,pause:true},
+  ],
+  auto:'a1_drael'
+},
+a1_drael:{
+  messages:[
+    {who:'sys',text:'two nights later'},
+    {who:'soren',text:'Drael came to the Brine House. The Khel I folded into the noodle cart — arm in a brace now, grudge fully grown. Four others with him.',delay:2300},
+    {who:'soren',text:'Flat offer: Gorrik wants to meet the human who hits hard and doesn\'t run. Come quiet, there\'s work. Come loud, there\'s the other thing.',delay:2400,pause:true},
+  ],
+  choices:[
+    {t:'Come quiet. Leave Yenna with Sezhna.', say:'Quiet. I\'ll leave the girl here.', next:'a1_quiet'},
+    {t:'Come loud. Don\'t walk into the lion\'s mouth unarmed.', say:'Not unarmed. I don\'t walk in loud but I don\'t walk in naked either.', next:'a1_loud', danger:true, act:true},
+  ]
+},
+a1_loud:{
+  messages:[
+    {who:'tib',text:'Loud. He said COME LOUD AND THERE\'S THE OTHER THING and you heard "bring a gun." Halgrave. The other thing is a hole in the salt.',delay:2300},
+    {who:'soren',text:'He\'s right. A man who comes to Gorrik armed and bristling is a man telling Gorrik he expects to need it. That\'s a confession.',delay:2200},
+    {who:'soren',text:'I come quiet. It\'s the only door that doesn\'t close behind me.',delay:1700,pause:true},
+  ],
+  auto:'a1_quiet'
+},
+a1_quiet:{
+  messages:[
+    {who:'soren',text:'Took Tib. Separating from Tib has never once gone well, and under the noise he\'s the best eyes and ears on the station.',delay:2200},
+    {who:'tib',text:'That is the single nicest thing you have ever said to me and I am going to ruin it by reminding you I once short-circuited your door panel and called it a security audit.',delay:2500},
+    {who:'soren',text:'Gorrik keeps his shop in a gutted refinery hung off the station\'s underside. Cathedral of dead machinery and standing water.',delay:2300,pause:true},
+  ],
+  auto:'a1_gorrik'
+},
+a1_gorrik:{
+  chapter:{n:'Chapter Three',t:'What kind of fish'},
+  messages:[
+    {who:'soren',text:'Gorrik\'s bigger than his men. Quieter. The only kind of big that ought to scare you. He looked at me a long time, the patience of a man choosing a cut of meat.',delay:2600},
+    {who:'soren',text:'"You cost me two workers. Over a thing that wasn\'t yours."',delay:1500},
+    {who:'soren',text:'I told him I don\'t like loud. His boys were loud.',delay:1400},
+    {who:'soren',text:'He has a run going out. Brakkis surface to the high docks. Product frozen inside gutted eel-haulers — scanners read it as fish, fish is dull. Drael rides with me so he\'ll know if I\'m a tira.',delay:2700,pause:true},
+    {who:'tib',text:'A what?',delay:800},
+    {who:'soren',text:'A cop. A planted lawman. He said it watching my face for the flinch. I gave him nothing. Giving nothing is the one thing fourteen months taught me to do well.',delay:2500},
+  ],
+  checkpoint:true,
+  choices:[
+    {t:'"When?"  (take the run)', say:'Fine. When?', next:'a1_run_intro'},
+    {t:'Push back — don\'t look too eager.', say:'And if I say I don\'t ride with a man who wants me dead?', next:'a1_pushback'},
+  ]
+},
+a1_pushback:{
+  messages:[
+    {who:'soren',text:'Gorrik almost smiled. "Then you walk back up to the promenade and wait for my price to find you. Eager or dead. Pick."',delay:2300},
+    {who:'soren',text:'A little reluctance keeps it honest. Too much and I\'m back to square one with a bounty on me. I take the run.',delay:2100,pause:true},
+  ],
+  auto:'a1_run_intro'
+},
+a1_run_intro:{
+  messages:[
+    {who:'soren',text:'So now I\'m in the cab of a stinking eel-hauler at two in the station morning, beside a Khel who wants me dead, hauling enough frozen poison to put down a small moon. Tib\'s in the glovebox.',delay:2700},
+    {who:'tib',text:'(muffled) I want it on the record that I am in a refrigerated compartment with a dead eel and the eel has more legroom than I do. I have lost a dignity contest to a fish. A SECOND fish, Captain.',delay:2700},
+    {who:'soren',text:'Coming up off the Brakkis surface road. Dead salt sea below us, white and cracked to the curve of the world. Checkpoint at the foot of the high docks. Going quiet now. Don\'t panic if I drop.',delay:2700,pause:true},
+  ],
+  auto:'a1_checkpoint_wait'
+},
+a1_checkpoint_wait:{
+  wait:{secs:25, title:'SOREN IS DARK', desc:'running the checkpoint · channel muted'},
+  auto:'a1_checkpoint'
+},
+a1_checkpoint:{
+  messages:[
+    {who:'soren',text:'Back. Trooper waved us down. Bored slouch, scanner in hand. Drael went tight beside me. Whole run hanging on the next forty seconds.',delay:2400},
+    {who:'soren',text:'"Glovebox," the trooper says. "Open it."',delay:1300},
+    {who:'soren',text:'Tib\'s in the glovebox.',delay:1100,pause:true},
+  ],
+  choices:[
+    {t:'"It\'s stuck. Latch is shot." Stall him.', say:'Tell him the latch is shot. Whole rig\'s held together with spit.', next:'a1_stall'},
+    {t:'Pop it yourself. Trust Tib to improvise.', say:'Open it yourself. Trust the rat.', next:'a1_tibgag', danger:true, act:true},
+  ]
+},
+a1_stall:{
+  messages:[
+    {who:'soren',text:'"It\'s stuck. Latch is shot. Whole rig\'s held together with spit."',delay:1700},
+    {who:'soren',text:'"Open the glovebox," the trooper says again. Not a man who likes the word no.',delay:1700},
+    {who:'soren',text:'And Drael — who hates me, who has a grudge and a braced arm and a deep suspicion I\'m exactly what Gorrik fears — Drael smiles, and reaches over, and pops the latch himself.',delay:2700,pause:true},
+  ],
+  auto:'a1_tibgag'
+},
+a1_tibgag:{
+  messages:[
+    {who:'soren',text:'The door falls open. Trooper leans in with the scanner.',delay:1500},
+    {who:'soren',text:'Tib comes out already in motion — not at the trooper, AWAY, straight up the inside of the windscreen — and triggers the Persuader. Every scanner inside ten feet throws a screaming fit.',delay:2700},
+    {who:'tib',text:'(clinging upside down to the visor) I\'M SORRY, I\'M SO SORRY, I HAVE A WEAK GRIP, IT\'S A MEDICAL—',delay:2100},
+    {who:'soren',text:'He loses his grip — of course he does — and falls directly into the trooper\'s open collar. There is no training for an alien in your shirt.',delay:2500},
+    {who:'soren',text:'Trooper goes over backward into his own checkpoint. I roll us through the lifted barrier at a stately, law-abiding crawl.',delay:2400,pause:true},
+  ],
+  auto:'a1_drael_laughs'
+},
+a1_drael_laughs:{
+  messages:[
+    {who:'soren',text:'Circled back for Tib. He\'s sitting in a puddle being violently dignified about it.',delay:1900},
+    {who:'soren',text:'And Drael\'s laughing. Actually laughing — a great wet Khel honk, hatred briefly suspended in pure animal delight. "That," he wheezes, "is the ugliest, dumbest, luckiest little thing I have ever seen, and it just walked us through a checkpoint."',delay:2900},
+    {who:'tib',text:'I am extremely for sale. I have a price. It is very high and it includes a heated compartment and a no-eel clause.',delay:2200},
+    {who:'soren',text:'Brought the run home clean. For one long drive across a dead sea, Drael forgot to hate me. Closest thing to a good night I\'ve had in fourteen months.',delay:2600,pause:true},
+  ],
+  auto:'a1_pumproom'
+},
+a1_pumproom:{
+  chapter:{n:'Chapter Four',t:'The brass weight'},
+  messages:[
+    {who:'soren',text:'Yenna won\'t sleep where Sezhna offered. Sleeps in the dead pump room. I bring her food. We eat in the buzzing light and don\'t talk, and the not-talking is its own kind of talking.',delay:2700},
+    {who:'soren',text:'Tonight she had a small thing out. A brass weight, worn smooth, dull gold. A number stamped on the side, too faded to read.',delay:2300},
+    {who:'yenna',text:'My father\'s. From the bench. You balance the scale against it when you\'re settling the glass — too heavy it cuts, too light it won\'t lay down. It\'s the only thing of his I have. The one piece nobody wanted.',delay:3000,pause:true},
+    {who:'soren',text:'She looked at me and asked the one thing I don\'t have a cover answer for.',delay:1800},
+    {who:'yenna',text:'What\'s your real name?',delay:1300,pause:true},
+  ],
+  checkpoint:true,
+  choices:[
+    {t:'Give her your real name. Tell her the truth.', say:'Tell her. After everything, tell her the truth.', next:'a1_realname', danger:true, act:true},
+    {t:'"Halgrave. Just Halgrave."  (hold the cover)', say:'Halgrave. Just Halgrave.', next:'a1_holdname'},
+  ]
+},
+a1_realname:{
+  messages:[
+    {who:'soren',text:'I almost did. Felt it come up the back of my throat — the whole weight of it. My name, my badge, why I let her break two arms over me.',delay:2500},
+    {who:'soren',text:'But she lives inside Gorrik\'s machine. And Gorrik tests. A secret given is a secret that can be wrung out of someone in a kitchen with the scale knocked off the bench.',delay:2600},
+    {who:'soren',text:'So I gave her a true thing instead. My father drove a salvage hauler. Promised me a long run when I was old enough to be useful. Sold the hauler when I was eleven to pay a debt I didn\'t know we had. Never did the run.',delay:3200},
+    {who:'soren',text:'"Halgrave," I said. "Just Halgrave." She watched my face do the math and lose. She wasn\'t fooled. And she decided, deliberately, not to push.',delay:2800,pause:true},
+  ],
+  auto:'a1_celebration'
+},
+a1_holdname:{
+  messages:[
+    {who:'soren',text:'"Halgrave. Just Halgrave."',delay:1300},
+    {who:'soren',text:'She watched my face do the math and lose. She wasn\'t fooled — she\'s been read by experts and she can read back. And she decided, deliberately, not to push.',delay:2700},
+    {who:'soren',text:'Kindest thing anyone\'s done for me in fourteen months. Broke something loose in my chest I\'d been counting on staying nailed down.',delay:2500,pause:true},
+  ],
+  auto:'a1_celebration'
+},
+a1_celebration:{
+  chapter:{n:'Chapter Five',t:'The test'},
+  messages:[
+    {who:'sys',text:'three nights before the meet'},
+    {who:'soren',text:'Gorrik called me in. Put a cup in my hand, clapped my shoulder with a hand like a loading clamp. All warmth. I read the warmth the way you read a flat sea before weather.',delay:2700},
+    {who:'soren',text:'Yenna\'s in the corner. On her knees. Wrists bound. White hair across her face.',delay:1900,pause:true},
+    {who:'soren',text:'"My friend the human," Gorrik says to the room. Then the warmth goes out of his face like a switch. "Doesn\'t tell me where he sleeps. Or where the ledger sleeps. She\'s been gone a week. And then you turn up."',delay:3000},
+    {who:'soren',text:'Drael draws a long worker\'s blade. "Tell me where you\'ve stashed her. I believe you, or we open you up and see what kind of fish you are."',delay:2700,pause:true},
+  ],
+  checkpoint:true,
+  choices:[
+    {t:'Give up the pump room. Buy your life.', say:'I\'ll tell you where she is.', next:'a1_betray', danger:true, act:true},
+    {t:'Move first. Take the blade off Drael.', say:'I\'m taking the knife.', next:'a1_violence', danger:true, act:true},
+    {t:'Don\'t flinch. Lecture him on his own business.', say:'Don\'t flinch. Talk him out of it.', next:'a1_lecture', act:true},
+  ]
+},
+a1_betray:{
+  messages:[
+    {who:'soren',text:'I gave up the pump room. To Gorrik. To buy a few more hours of breathing.',delay:2000},
+    {who:'soren',text:'He sent four men. They took Yenna back and they took Sezhna\'s loyalty out behind the Brine House and ended it. And me — Gorrik kept me close, smiling, because a man who sells out the girl he saved is a man you can always sell again.',delay:3000,pause:true},
+  ],
+  ending:{kind:'bad', kicker:'Cover intact · everything else lost',
+    title:'THE CAREFUL <span class="acc">COWARD</span>',
+    body:'You kept him alive. That was the only thing you kept. Yenna recited the settling on the Dock Nine floor a week later, the method walked out of her head into the dragon\'s, and the only reason she\'d stayed alive for six years stopped existing. The cure died in that room. Halgrave finished his fish for the rest of his life and never once tasted it.',
+    quote:'Careful men out here run from something, not toward it.',
+    retry:'a1_celebration'}
+},
+a1_violence:{
+  messages:[
+    {who:'soren',text:'I went for the blade before he finished the sentence.',delay:1600},
+    {who:'soren',text:'But Gorrik runs on stillness too. We\'re the same animal — I clocked that the first night. He was waiting for exactly this. He had two men on me before I cleared the table.',delay:2700},
+    {who:'soren',text:'And a body with a Compact Marshal\'s identity chip riding under the collarbone is a body that ends the operation, your career, and Yenna\'s life. They found the chip.',delay:2700,pause:true},
+  ],
+  ending:{kind:'death', kicker:'Refinery · Cinderhault underside',
+    title:'WHAT KIND OF <span class="acc">FISH</span>',
+    body:'The kind that swims into the net. Drael got his arm back the way he\'d wanted it since the noodle cart. Gorrik fed your chip into the dark and never even learned your name. Fourteen months, closed out on a refinery floor in standing water — and the dragon never had to leave its cave.',
+    retry:'a1_celebration'}
+},
+a1_lecture:{
+  messages:[
+    {who:'soren',text:'Didn\'t move. Drank instead. Then I did the thing nobody at Dock Nine ever taught me, because it was the only thing left.',delay:2300},
+    {who:'soren',text:'"You want to know what kind of fish I am. Fine. The kind that doesn\'t sit on the floor."',delay:1900},
+    {who:'soren',text:'"You\'ve got one ledger in the universe and she lives in her own head, and if your boy nicks her wrong she stops being a fortune and starts being a funeral. I moved her because your men drag her through markets. Loud. The Smelter\'s people have eyes here. I kept your price up."',delay:3400},
+    {who:'soren',text:'"You want to thank me, or stick me and explain the empty drawer to the dragon yourself?"',delay:2300,pause:true},
+    {who:'soren',text:'All true except the why. And the why was the only part that mattered.',delay:1700},
+  ],
+  auto:'a1_lecture2'
+},
+a1_lecture2:{
+  messages:[
+    {who:'soren',text:'Gorrik looked at me a long, long time. The blade hung in Drael\'s hand.',delay:2000},
+    {who:'soren',text:'Then he laughed, low and ugly. "He\'s right, though. That\'s the worst part. He\'s right." Slid the blade away. Cut Yenna loose.',delay:2400},
+    {who:'soren',text:'"Three nights. Dock Nine. You stand next to me and watch a man become rich. And after — we\'ll find out what kind of fish you really are. There\'s always an after."',delay:2900,pause:true},
+    {who:'tib',text:'I have reviewed the footage of you talking your way out of a knife with a lecture about supply chains and I want you to know, with my whole disgusting little heart, that was the single hottest thing I have ever seen a human do and I am furious about it.',delay:3400},
+  ],
+  auto:'a1_docknine'
+},
+a1_docknine:{
+  chapter:{n:'Chapter Six',t:'Dock Nine'},
+  messages:[
+    {who:'sys',text:'dock nine · the bottom of the station'},
+    {who:'soren',text:'Cathedral of cold light and standing water. I\'m on the floor at Gorrik\'s left, hands easy. Your strike cutter\'s three jumps out riding the dark.',delay:2600},
+    {who:'soren',text:'Your last message was four characters, Captain. ON YOUR CALL. Everything hangs on me sending one word.',delay:2300},
+    {who:'soren',text:'The dragon sent a clerk. Narrow rim-pale woman, a slate, no muscle. That\'s the first wrong note. You don\'t take a fortune off Cinderhault with one woman and a slate. Unless you know something the floor doesn\'t.',delay:3100,pause:true},
+  ],
+  checkpoint:true,
+  auto:'a1_recite'
+},
+a1_recite:{
+  messages:[
+    {who:'soren',text:'They brought Yenna out. Cleaned up, grey traveling shift now. The brass weight gone — confiscated. She walks the long floor with her chin level and does not look at me. The not-looking costs her. She\'s protecting me by not giving Gorrik a reason to look twice.',delay:3400},
+    {who:'soren',text:'The clerk circles her once. "Recite the settling. First three balances. Proof of product."',delay:2100},
+    {who:'soren',text:'Captain — that\'s the trap inside the trap. The second she recites even the first balance out loud, the method\'s out of the drawer. And the only thing keeping Yenna alive for six years becomes redundant.',delay:3200,pause:true},
+    {who:'yenna',text:'No. You don\'t get it standing up. My father got opened up in his own kitchen for this. I\'d rather be a funeral. Cut me. Find out what kind of fish I am.',delay:3100,pause:true},
+  ],
+  choices:[
+    {t:'Say the word. ON. Bring the raid down now.', say:'ON.', next:'a1_raid', act:true},
+    {t:'Wait — let her stall, get the clerk talking first.', say:'Hold. Let her draw the clerk out. We might still get a name.', next:'a1_wait_wrong', danger:true, act:true},
+  ]
+},
+a1_wait_wrong:{
+  messages:[
+    {who:'soren',text:'I waited. One beat too long.',delay:1500},
+    {who:'soren',text:'The clerk doesn\'t argue with a funeral. She nods at Gorrik\'s men. A blade comes up at Yenna\'s throat to make the recitation happen the fast way — and that\'s a knife I can\'t cross the floor in time to stop.',delay:3000,pause:true},
+  ],
+  choices:[
+    {t:'Say it NOW. ON.', say:'ON. NOW.', next:'a1_raid_late', act:true},
+  ]
+},
+a1_raid_late:{
+  messages:[
+    {who:'soren',text:'The cutter comes in late. I make the floor but not in time — I take the blade-arm off Yenna and the cut goes shallow, but the chaos costs more than it should have. The clerk gets up the ramp and gone before a trooper folds her over the rail.',delay:3300},
+    {who:'soren',text:'We got Gorrik. We didn\'t get the clerk, and the clerk was the one thread that knew a routing. Holding cost us the only lead past Gorrik.',delay:2600,pause:true},
+  ],
+  auto:'a1_crane'
+},
+a1_raid:{
+  messages:[
+    {who:'soren',text:'I said it quiet, into my collar. "ON."',delay:1500},
+    {who:'soren',text:'Three jumps of dark folded into one. The strike cutter came in belly-first against the Dock Nine clamps with a sound like the station\'s spine breaking.',delay:2600},
+    {who:'soren',text:'Everything at once. The clerk dove for the ramp. Drael drew. Gorrik turned on me with the slow, total understanding of a man learning the name of the thing he let into his house. Tira. You tira.',delay:3100,pause:true},
+    {who:'tib',text:'I am wired into Dock Nine\'s bones. Say the word again and I throw every light and clamp on this dock into screaming revolt. It is the plan. It will also lose me my mind a little.',delay:2700},
+  ],
+  auto:'a1_crane'
+},
+a1_crane:{
+  messages:[
+    {who:'soren',text:'Tib triggered the Persuader against the master board. Every light, every door, every clamp lost its mind — and so did the gantry crane above the floor. It started swinging its load. A cargo container the size of a bus, in a wide ruinous arc.',delay:3300},
+    {who:'soren',text:'I\'ve got Gorrik\'s wrist in both hands and a blade a finger from my throat. We\'re the same animal and he doesn\'t fold.',delay:2300},
+    {who:'soren',text:'And the container comes around for its second pass — directly over the spot where Yenna is standing frozen. I can hold Gorrik, or I can reach her. Not both.',delay:2900,pause:true},
+  ],
+  choices:[
+    {t:'Let Gorrik go. Go for Yenna.', say:'Drop him. Get to her.', next:'a1_save_yenna', act:true},
+    {t:'Hold Gorrik. The troopers will get Yenna clear.', say:'Hold Gorrik. Trust the strike team to pull her out.', next:'a1_hold_gorrik', danger:true, act:true},
+  ]
+},
+a1_hold_gorrik:{
+  messages:[
+    {who:'soren',text:'I held him. Bet on the troopers.',delay:1500},
+    {who:'soren',text:'They were three seconds too far up the ramp. Three seconds is the whole distance between a person and a container.',delay:2200},
+    {who:'soren',text:'I got Gorrik. I got him face-down and roaring in irons, the dragon\'s gatekeeper at last. And I will spend the rest of the run learning that I chose the cage over the girl, and that the rim always sends you that bill, and it never sends it late.',delay:3300,pause:true},
+  ],
+  ending:{kind:'bad', kicker:'Dock Nine · the wrong arithmetic',
+    title:'YOU GOT THE <span class="acc">GATEKEEPER</span>',
+    body:'Gorrik in irons, the operation a success on paper, and the one person it was ever actually about under a cargo container on the floor of Dock Nine. The settling died with her — not stolen, just gone. The Smelter slid back into its cave to wait for the next chemist. There\'s always a next one. That was the rim\'s whole point, and you proved it.',
+    quote:'People out here always think they\'ve got more road than they\'ve got.',
+    retry:'a1_crane'}
+},
+a1_save_yenna:{
+  messages:[
+    {who:'soren',text:'I let go of the blade hand. Took Gorrik\'s whole weight on my chest for one terrible second and threw myself sideways — toward her, not away.',delay:2700},
+    {who:'soren',text:'Hit her at the knees. Took us both down into the cold standing water as the container came through the air we\'d been standing in with a sound that shook the teeth out of the night.',delay:2900,pause:true},
+    {who:'soren',text:'It also came through where Tib was.',delay:1400,pause:true},
+  ],
+  auto:'a1_tib_down'
+},
+a1_tib_down:{
+  messages:[
+    {who:'soren',text:'He\'d clung to the master board through all of it, riding the chaos like a man surfing a building fire. The swinging load caught the gantry, the gantry caught the board, and the whole rig came down in a fountain of cold sparks.',delay:3100},
+    {who:'soren',text:'Tib went into the dark with a yelp I heard over the gunfire and the law and the screaming dock. One small voice, up, and then gone.',delay:2600,pause:true},
+    {who:'soren',text:'Captain. I came up out of the water with Yenna under me and Gorrik taken by your troopers near the ramp. We won. And I didn\'t hear any of it. I was already running for the heap of dead machinery where a tiny grey-green shape lay too still.',delay:3400,pause:true},
+  ],
+  wait:{secs:20, title:'TIB IS DOWN', desc:'medics three jumps out · waiting on a pulse'},
+  auto:'a1_tib_lives'
+},
+a1_tib_lives:{
+  messages:[
+    {who:'soren',text:'He lives. Badly and loudly and against the odds, the way Tib does everything.',delay:1900},
+    {who:'tib',text:'(barely) Is it on the record that I held the board? I held the board through the whole — write that down, somebody write that—',delay:2200},
+    {who:'soren',text:'Then he passed out. Most reasonable thing he\'d done all night. He lost the third eye. The small one — the one that twitched when he lied. They can\'t grow it back.',delay:2700},
+    {who:'tib',text:'(later, deniable forever) I have a weak grip. It\'s medical.',delay:1800,pause:true},
+    {who:'soren',text:'He threw himself across that board on purpose, in the open, with the gantry coming down, so the chaos would hold long enough for your team to land. Bravest thing on the dock. He\'ll deny it to his grave.',delay:3100},
+  ],
+  auto:'a1_holt_report'
+},
+a1_holt_report:{
+  messages:[
+    {who:'soren',text:'We got Gorrik. We got the station. The clerk knew a name and a routing and nothing that led to a face. Roon went to ground. And the Smelter — the whole reason for fourteen months in the mud — stayed exactly where it\'s always been. Nowhere anyone can reach. One link further up a chain that just got longer.',delay:3700},
+    {who:'soren',text:'I know what you have to tell me, Captain. My face is on a dozen ledgers now. The Smelter knows what the man who burned Cinderhault looks like. I can\'t go back under. Not here. Not anywhere on the Verge for a long while.',delay:3600,pause:true},
+    {who:'soren',text:'"Come in, or keep running," you said. "Your call." There\'s always an after. Gorrik was right about that too.',delay:2400},
+  ],
+  auto:'a1_salt'
+},
+a1_salt:{
+  chapter:{n:'Chapter Seven',t:'The dead salt sea'},
+  messages:[
+    {who:'soren',text:'Took Yenna out to the Brakkis surface road. She asked to go and I\'ve stopped being able to tell her no. Your people recovered her father\'s effects from Gorrik\'s vault. The notes. The glass. And a small set of brass weights, one worn smoother than the rest.',delay:3600},
+    {who:'soren',text:'She held the worn one the whole drive. The worthless one. The one nobody wanted.',delay:1900},
+    {who:'yenna',text:'They\'ll come for me. Roon. The Smelter. Whoever\'s next. As long as the settling\'s in my head, I\'m a drawer somebody wants to open. Six years. It doesn\'t stop because Gorrik\'s in a cell.',delay:3300,pause:true},
+  ],
+  choices:[
+    {t:'"Then we keep running. Up the routes."', say:'Then we keep running. Up the routes, past where they need the road.', next:'a1_throw'},
+    {t:'Say nothing. Let her decide.', say:'(say nothing — let her get there herself)', next:'a1_throw'},
+  ]
+},
+a1_throw:{
+  messages:[
+    {who:'yenna',text:'My father\'s whole life is in here. The only place it\'s safe is the one place it gets me killed. So I\'m going to do the thing he was too brave or too slow to do. I\'m going to forget it. On purpose. Balance by balance. Until I\'m just a girl. Worth a funeral and nothing more.',delay:4000},
+    {who:'yenna',text:'It\'s the only way to keep any of him. Let go of all of it, so I get to keep being a person instead of a tool with his name on the drawer.',delay:3100,pause:true},
+    {who:'soren',text:'And she drew her arm back and threw the brass weight out over the dead salt sea, where it fell, small and dull and final, into the white waste her father once promised to take her away from.',delay:3200},
+    {who:'soren',text:'I didn\'t say anything. There wasn\'t anything that wouldn\'t have been a lie or a sermon. I walked out onto the salt and stood beside her and let her not be alone.',delay:2900,pause:true},
+  ],
+  auto:'a1_close'
+},
+a1_close:{
+  messages:[
+    {who:'tib',text:'(from the cab, refusing to admit any feeling whatsoever) Oh, lovely. We\'re keeping the girl. The dangerous, hunted, planet-sized-trouble girl. I had ONE rule about return addresses.',delay:2800},
+    {who:'tib',text:'...She gives him a reason to finish the run. Fine. FINE. Write it down. Somebody write that one down too.',delay:2400,pause:true},
+    {who:'soren',text:'Three of us in a stolen eel-hauler that won\'t shed its cold cargo-smell. A burned Marshal, a forgetting chemist, a one-eyed liar. A fortune in nobody\'s pocket and a dragon still asleep in its cave, three steps up a chain.',delay:3400},
+    {who:'soren',text:'It wasn\'t a happy ending. But it was finished, and it was ours, and it was earned. On the rim, that\'s as close to enough as anyone gets.',delay:2900,pause:true},
+  ],
+  ending:{kind:'good', kicker:'End of Act One · Cinderhault',
+    title:'THE LONG <span class="acc">ROUTES</span>',
+    body:'Gorrik caged. The cure thrown into a dead sea to keep the woman who carries it alive. The dragon uncaught, three steps up a chain that just got longer. You ran him clean through the worst of it — and the worst of it is never the last of it on the Verge. The cave is about to be empty. Better learn what it looks like before it learns what you do.',
+    quote:'There was never more road than time. There was only ever what you carried down it.',
+    stat:'ACT ONE COMPLETE — the saga continues',
+    next:'a2_open'}
+},
+
+/* ═══════════════ ACT 2 — CORAM HALT ═══════════════ */
+a2_open:{
+  chapter:{n:'Act Two',t:'Coram Halt'},
+  messages:[
+    {who:'sys',text:'six weeks later · coram halt · clear water at last'},
+    {who:'soren',text:'First place on the long routes where the water comes out of the tap clear, Captain. I\'ve decided that\'s as good a definition of arriving as any. Six weeks. Longest I\'ve stayed anywhere with my own face since before the mud.',delay:3400},
+    {who:'soren',text:'I keep catching myself enjoying it. Feels like leaving a window unlatched.',delay:1900},
+    {who:'tib',text:'I built a new rig. The Persuader Two: This Time It\'s Personal. It is a sequel and sequels are allowed to be about revenge. I held the board at Dock Nine ON PURPOSE, by the way. The lost eye was the cowardly one. We\'re better off.',delay:3400,pause:true},
+  ],
+  auto:'a2_boy'
+},
+a2_boy:{
+  messages:[
+    {who:'soren',text:'A boy came in on a flatbed at shift change. Khel kid, sixteen at most. Koro — the runner who fetches for the dock crews, always laughing. Wasn\'t laughing now. Shaking the way a thing shakes when something inside it is coming apart.',delay:3500},
+    {who:'soren',text:'Clinic\'s one room, one exhausted physician. She says: half-cut glass. Worse than raw. Six in two months, he\'s the youngest. "Whoever used to settle it right stopped. Now the whole route\'s drinking glass."',delay:3500,pause:true},
+    {who:'yenna',text:'I stopped. That\'s me. I\'m whoever stopped.',delay:1900,pause:true},
+  ],
+  auto:'a2_confess'
+},
+a2_confess:{
+  messages:[
+    {who:'soren',text:'I never did that arithmetic, Captain. The thing keeping the rim\'s poison from being a slower poison was one woman\'s memory. And she\'s been deleting it. Balance by balance. To be free.',delay:3200},
+    {who:'yenna',text:'There\'s a thing you don\'t know about what my father made. The smooth settle — riding it, losing a year instead of all of it — that\'s the halfway point. The part he let people see. Take it one balance further and the glass stops being able to hold to a body at all. It lets go. It comes back out.',delay:4200},
+    {who:'yenna',text:'He wasn\'t making a better high. He was making the thing that pulls it back out of a person who\'s already drowning. A cure. He\'d done it twice on the bench before Gorrik.',delay:3400,pause:true},
+  ],
+  checkpoint:true,
+  choices:[
+    {t:'"How much of it is still in your head?"', say:'How much of the true one is left in there?', next:'a2_hole'},
+    {t:'"Then we make what you\'ve got. Tonight. On him."', say:'Then we make the version you\'ve got. Tonight. On the boy.', next:'a2_hole'},
+  ]
+},
+a2_hole:{
+  messages:[
+    {who:'yenna',text:'Most of it. I think. There\'s a step near the end I can\'t find — the hold-time on the second settling. Forty count or sixty. I had it. I got careless on purpose and now there\'s a hole where the last hold-time used to be.',delay:3600},
+    {who:'yenna',text:'I can make a pull that works. But I burned a piece of the true one, and I don\'t know if it\'s gone for a night or gone forever. I might have killed the cure to be free.',delay:3300,pause:true},
+    {who:'soren',text:'And the bench — your father\'s scale, his glass, his notes — the Compact took it after Cinderhault. "For study." It\'s three jumps and a wall of our own law away from that boy.',delay:3000,pause:true},
+  ],
+  auto:'a2_faulk_reveal'
+},
+a2_faulk_reveal:{
+  messages:[
+    {who:'soren',text:'No. It\'s closer than three jumps. It\'s been closer for two weeks and I\'ve been eating pell-cake and pretending I didn\'t see the post they built on the far side of the water towers.',delay:3200},
+    {who:'soren',text:'Compact Reclamation put a field station on Coram Halt eleven days ago. They didn\'t follow the polish up the routes, Captain. They followed me. And they brought her father\'s bench, because somebody figured out exactly what she just told me. They want it made. They just don\'t want it made free.',delay:4200,pause:true},
+  ],
+  auto:'a2_faulk'
+},
+a2_faulk:{
+  chapter:{n:'Chapter Eight',t:'The reasonable man'},
+  messages:[
+    {who:'soren',text:'Reclamation Officer Imre Faulk. Looks like an accountant promoted past the part of the job he was good at. Soft, careful cuffs, tired courtesy. Had tea brought. Real tea.',delay:3000},
+    {who:'soren',text:'"You\'re going to think the Compact is your enemy," he says. "It isn\'t. It\'s just not your friend." He\'s got the bench. And the only living person who can use it sitting across from him.',delay:3300,pause:true},
+    {who:'yenna',text:'You\'ll make it free. Give it to clinics. Pull the glass out of dying kids on the routes.',delay:2200},
+    {who:'soren',text:'"No," Faulk says. And here\'s where it gets hard, Captain, because he isn\'t lying and he isn\'t a villain.',delay:2400,pause:true},
+  ],
+  choices:[
+    {t:'Let him make his case. Hear the math.', say:'Let him talk. I want the whole argument.', next:'a2_faulk_math'},
+    {t:'"The boy in the clinic has days. Your slow version doesn\'t reach him."', say:'The boy has days. Your slow version doesn\'t reach him.', next:'a2_faulk_offer'},
+  ]
+},
+a2_faulk_math:{
+  messages:[
+    {who:'soren',text:'"Make it free," he says, "and within a month every operator running glass knows their customers can be cured. The glass goes worthless. A dozen Gorriks and one Smelter go to war over the last profitable weeks of a dying market — and that war runs straight through every settlement the routes touch. Including this one."',delay:4400},
+    {who:'soren',text:'"So we don\'t make it free. We make it slow. Meter it out. Keep it too scarce to threaten the market all at once. It\'s ugly. It\'s the least-dead version of an all-ugly situation. It\'s the job."',delay:3700,pause:true},
+  ],
+  auto:'a2_faulk_offer'
+},
+a2_faulk_offer:{
+  messages:[
+    {who:'soren',text:'"Here\'s my offer, and it\'s real. Miss Sorrel comes into Compact custody — willingly, protected asset, not prisoner. She works the bench under our control, on our schedule. In exchange, the first dose goes to your boy downstairs tonight. One life, free. The rest, metered."',delay:4200},
+    {who:'soren',text:'"It\'s a better deal than the Smelter\'s about to offer you. And the Smelter is already on the routes, because you are not the only one who can do the arithmetic. Castor Roon does not bring tea."',delay:3500,pause:true},
+  ],
+  checkpoint:true,
+  choices:[
+    {t:'Take the deal. One life now beats none.', say:'Take it. The boy lives tonight. We deal with the rest later.', next:'a2_roon_hits', danger:true, act:true},
+    {t:'Refuse. The cure can\'t belong to anyone.', say:'No. It doesn\'t go in a drawer, Compact or otherwise.', next:'a2_refuse'},
+  ]
+},
+a2_refuse:{
+  messages:[
+    {who:'soren',text:'I told him no. The cure doesn\'t go in a drawer — not Gorrik\'s, not the Smelter\'s, not the Compact\'s.',delay:2400},
+    {who:'soren',text:'Faulk looked at me with something close to pity. "Somebody in this room has to have done the math," he said. He wasn\'t angry. That was the worst of it.',delay:2900},
+    {who:'soren',text:'And then the math arrived on its own, the way it does out here. Roon didn\'t wait for an answer.',delay:2400,pause:true},
+  ],
+  auto:'a2_roon_hits'
+},
+a2_roon_hits:{
+  chapter:{n:'Chapter Nine',t:'Roon doesn\'t bring tea'},
+  messages:[
+    {who:'soren',text:'Eleven shooters and a freight skiff, dead middle of the night. The Smelter\'s math is simpler than Faulk\'s: a free cure\'s worthless, a controlled cure\'s a fortune, and the lever is a violet woman with a bag of brass weights standing in a Compact box arguing ethics.',delay:4200},
+    {who:'tib',text:'Eleven on the wire. Skiff signature, heavy. It\'s Roon — nobody else spends like this for a chemist. I wired the Persuader Two into the post\'s perimeter board the second we walked in. I trust the Compact about as far as I can throw a water tower.',delay:4000},
+    {who:'soren',text:'Faulk\'s up. Doesn\'t reach for Yenna, doesn\'t run. Puts himself between the door and the chemist. Which tells me the last thing I needed to know about Imre Faulk: he means every ugly word, and he\'ll die standing in front of the asset he refuses to free.',delay:4200,pause:true},
+  ],
+  auto:'a2_firefight'
+},
+a2_firefight:{
+  messages:[
+    {who:'soren',text:'Fast and grounded and graceless, the way these things really are. The post\'s two troopers held the door as long as two troopers can hold a door against eleven, which isn\'t long.',delay:3200},
+    {who:'soren',text:'I got Yenna down behind the bench-crate — her father\'s actual bench, four steps away the whole time. Put two rounds into the dark, heard one land. Faulk took a round through the shoulder and kept standing.',delay:3400},
+    {who:'soren',text:'Then Roon was in the broken doorway, pistol leveled at the crate, smile like a closing drawer. "The chemist comes with me. The bench comes with me." Captain — he\'s between us and the only bench on the Verge.',delay:3700,pause:true},
+  ],
+  choices:[
+    {t:'Rush Roon. Close the distance before he fires.', say:'Rush him. Now, before he settles the shot.', next:'a2_rush_wrong', danger:true, act:true},
+    {t:'Trust Yenna. She just looked at the bag of weights.', say:'Whatever you\'re about to do — do it. I\'ll move on your signal.', next:'a2_balance'},
+  ]
+},
+a2_rush_wrong:{
+  messages:[
+    {who:'soren',text:'Eleven feet of open floor against a leveled pistol. He doesn\'t miss that.',delay:1800},
+    {who:'soren',text:'But Yenna moved while I was still gathering — threw the bag of weights underhand to Tib and said one word: "Balance." I check the rush, drop flat, and let her play instead. Barely. A round goes through where my chest was.',delay:3400,pause:true},
+  ],
+  auto:'a2_balance'
+},
+a2_balance:{
+  messages:[
+    {who:'soren',text:'Yenna threw the bag — not at Roon, useless, metal against a pistol — underhand to Tib. He caught it against his chest. And she said the bench word. The working word. A thing that means nothing to Roon and everything to a slicer who watched her measure for six weeks.',delay:4000},
+    {who:'yenna',text:'Balance.',delay:1100},
+    {who:'tib',text:'I don\'t understand chemistry. I understand that the woman who lost an eye\'s worth of trust in me at Dock Nine and gave it back anyway just threw me her father in a bag and told me to tip the scale.',delay:3400,pause:true},
+  ],
+  choices:[
+    {t:'"Tib — the power coupling. Everything you\'ve got."', say:'Tib. The main coupling. Give it everything. NOW.', next:'a2_blackout', act:true},
+    {t:'Wait for a clean angle on Roon instead.', say:'Hold for a clean shot on Roon first.', next:'a2_blackout_late', danger:true, act:true},
+  ]
+},
+a2_blackout_late:{
+  messages:[
+    {who:'soren',text:'A clean angle in a room with eleven shooters is a thing you wait for until it\'s too late. Roon\'s finger whitens.',delay:2300},
+    {who:'soren',text:'Tib didn\'t wait for me. He made the call I should have. Slammed the rig against the coupling on his own.',delay:2400,pause:true},
+  ],
+  auto:'a2_blackout'
+},
+a2_blackout:{
+  messages:[
+    {who:'soren',text:'Tib dropped the Persuader off the crate and slapped it against the post\'s main power coupling — the fat unshielded one the Compact bolted in eleven days ago and never meant anyone to touch. Gave it every volt the sequel had.',delay:3600},
+    {who:'soren',text:'The lights didn\'t flicker this time. They went. All of them. The post, the fence, the water-tower beacons. For one held breath the only thing anyone could see was the moon.',delay:3300},
+    {who:'soren',text:'In that dark I took Castor Roon\'s pistol off him the way I took a club off a Khel on a promenade once. One quarter turn. His monologue ended on a note he hadn\'t planned.',delay:3000,pause:true},
+  ],
+  auto:'a2_let_roon'
+},
+a2_let_roon:{
+  messages:[
+    {who:'soren',text:'We didn\'t keep Roon. That\'s the cost, the real one. Holding him meant a firefight in the dark with a wounded accountant and a dying boy and a chemist who needed both hands free.',delay:3200},
+    {who:'soren',text:'I chose the boy. Let Roon stagger out and find his skiff and run, because the alternative was spending Yenna\'s hands and Tib\'s last trick on a man who\'s only ever the Smelter\'s voice. The Smelter would just grow another mouth. It didn\'t feel like wisdom. It felt like the rim taking its cut.',delay:4200,pause:true},
+    {who:'soren',text:'What we kept was the bench.',delay:1300},
+  ],
+  auto:'a2_make_cure'
+},
+a2_make_cure:{
+  chapter:{n:'Chapter Ten',t:'Fifty count'},
+  messages:[
+    {who:'soren',text:'By the time the Compact got thin amber emergency power up, Yenna had her father\'s scale set on the one level surface in the room. Twelve brass weights in a row gone dull gold. Her hands moving with a certainty I\'d never seen — a person who\'s finally stopped pretending she isn\'t what she is.',delay:4200},
+    {who:'soren',text:'They brought Koro up on a board. She worked the smooth version first — the half she can do in her sleep — then pushed it one balance further, into the territory that only lives in her memory. And her hands slowed at the hole.',delay:3800,pause:true},
+    {who:'yenna',text:'The hold-time. I can\'t — it was forty count or sixty, I burned the difference, I don\'t—',delay:2400,pause:true},
+  ],
+  choices:[
+    {t:'"Split it. Hold it fifty."', say:'Split it. You don\'t know if it\'s forty or sixty — so hold it fifty. Wrong by as little as possible, both directions at once.', next:'a2_fifty'},
+    {t:'"Trust your hands. Pick one and commit."', say:'Trust your hands. Pick one and commit — hesitation is its own poison.', next:'a2_fifty'},
+  ]
+},
+a2_fifty:{
+  messages:[
+    {who:'tib',text:'It\'s not chemistry. It\'s balance. Too heavy it cuts, too light it won\'t lay down. Sit it in the middle and let it lay down as much as it can. You taught me that watching you measure for six weeks.',delay:3400},
+    {who:'soren',text:'She held the second settling for a fifty count. Not the true cure — she knew it even as she did it. A pull with a hole in it. A thing that might buy a poisoned body years instead of pulling the glass clean. An imperfect mercy. The least-dead version. Exactly the thing Faulk said the job always comes down to.',delay:4400},
+    {who:'soren',text:'But she put it into the boy. And the shaking slowed. And slowed.',delay:1900,pause:true},
+    {who:'soren',text:'Sixteen years old and grey at the edges, Koro opened his eyes and said the most ordinary thing in the universe. "\'M thirsty."',delay:2800},
+    {who:'yenna',text:'There\'s water. It\'s clear. You\'ll like it.',delay:1800,pause:true},
+  ],
+  auto:'a2_faulk_lets_go'
+},
+a2_faulk_lets_go:{
+  messages:[
+    {who:'soren',text:'Faulk watched the asset he was authorized to control make the thing he was authorized to meter — free, on a clinic floor, for a sixteen-year-old — and he didn\'t lift the hand that wasn\'t pressed to the wound.',delay:3400},
+    {who:'soren',text:'Found me on the roof toward dawn. "I\'m not taking Miss Sorrel into custody. Not a change of heart — everything I said is still true and it\'s still coming, faster now. You made the cure real and public in the same night. A fact can\'t be controlled or owned. It can only be chased."',delay:4400},
+    {who:'soren',text:'"There\'s no point taking a drawer once the thing inside it has walked out on its own legs and gotten a drink of water. I\'ll file that the asset was lost in hostile action. Tell Holt she\'s a fool and she\'s right and I\'ll deny saying either."',delay:4200,pause:true},
+  ],
+  auto:'a2_close'
+},
+a2_close:{
+  messages:[
+    {who:'yenna',text:'It\'s not the cure. It\'s the pull with a hole in it. I burned the true one. I don\'t get to be free, Halgrave. I get to be useful. I spent six years thinking those were the same prison. They\'re not. One of them I chose.',delay:4000,pause:true},
+    {who:'soren',text:'Below us a sixteen-year-old was drinking clear water and asking for his brother. Out on the routes, a freight skiff was carrying Roon back to a master who let a key sit on a shelf for six years because a locked drawer could always, eventually, be bought.',delay:4000},
+    {who:'soren',text:'A key you can buy. A cure you can\'t. He\'s going to have to come down, Captain. The thing he can\'t buy, he has to come kill.',delay:2900,pause:true},
+    {who:'tib',text:'Then we\'d better learn what it looks like before it learns what we do. The cave is about to be empty.',delay:2700,pause:true},
+  ],
+  auto:'a3_open'
+},
+
+/* ═══════════════ ACT 3 — BRAKKIS ═══════════════ */
+a3_open:{
+  chapter:{n:'Act Three',t:'The man who finished the run'},
+  messages:[
+    {who:'sys',text:'nineteen days later · the cure walks the routes'},
+    {who:'soren',text:'It\'s working, Captain. Koro fetches water for the other patients, double-thumbed hands careful with the cups, laughing again. Every trucker leaves carrying the story a little further. The price of street glass has cracked in half and then in half again.',delay:4200},
+    {who:'soren',text:'Yenna\'s made eleven more doses off the bench. Every one with a hole in it. Every one works anyway — slows the glass, buys years. "You don\'t get a war when the prize stops being worth fighting over," she says. "You get a collapse. The operators are just walking off."',delay:4400,pause:true},
+    {who:'soren',text:'But one buyer didn\'t walk off. One thing stayed in the dark across two stations and a dead sea. Roon found us on the nineteenth day. Came alone. Both hands open.',delay:3300,pause:true},
+  ],
+  auto:'a3_roon_msg'
+},
+a3_roon_msg:{
+  messages:[
+    {who:'soren',text:'"I\'m a messenger," Roon says. A face that\'s aged a decade. "The Smelter wants to see her."',delay:2300},
+    {who:'soren',text:'I said the Smelter wants her dead. "No," he says — flat, first time in three encounters with no angle folded in. "Wants to SEE her. There\'s a difference, and you\'re going to want to learn it, because I spent eleven years not learning it and it cost me everything."',delay:4000},
+    {who:'soren',text:'"Brakkis. The old refinery. Six days. Bring the chemist, bring the bench, bring the rat. The Smelter doesn\'t care anymore who comes." Then, at the door, the strangest thing: "It\'s not what you think it is. The cave. It never was."',delay:4400,pause:true},
+    {who:'tib',text:'It is obviously, structurally, load-bearingly a trap. All fifteen of my dialects have a word for "don\'t."',delay:2700},
+  ],
+  checkpoint:true,
+  choices:[
+    {t:'"It\'s a trap. So we\'re going."', say:'It\'s a trap. We\'re going anyway. It\'s where the run ends.', next:'a3_two_stops'},
+    {t:'"Run instead. Up the routes, past where they need the road."', say:'Or we don\'t go. We run. Past the last clinic, past the last relay.', next:'a3_run_offer'},
+  ]
+},
+a3_run_offer:{
+  messages:[
+    {who:'soren',text:'I said it as a kindness and we both knew it was a lie.',delay:1600},
+    {who:'yenna',text:'You don\'t want to run. You want to finish the run. There\'s a difference. Your father never got to learn it. You\'ve been learning it since the day you sat at Ladle\'s and ate a whole fish while a girl got dragged past your table, and didn\'t move until you\'d decided exactly how much you were willing to lose.',delay:4600,pause:true},
+    {who:'soren',text:'There\'s no finishing a run you keep turning away from at the last stop. You go back to the beginning, or you carry the beginning the rest of your life like a debt nobody told you about. We\'re going to Brakkis.',delay:3600,pause:true},
+  ],
+  auto:'a3_two_stops'
+},
+a3_two_stops:{
+  chapter:{n:'Chapter Eleven',t:'Two stops first'},
+  messages:[
+    {who:'soren',text:'Two stops on the way. First — Gorrik. Compact holding cell, transit block. Smaller than the last time. A cell does that.',delay:2800},
+    {who:'soren',text:'I told him the cure lived. The thing Oren Sorrel was raving about in his kitchen — the glass letting go. "You broke into a house to steal the petty cash, killed the man who built the bank, and the bank opened anyway. That\'s your monument, Gorrik."',delay:4200,pause:true},
+    {who:'soren',text:'He was quiet a long time. Then: "The runner. Koro. He\'s Drael\'s brother." Something crossed his face and stayed this time. "You\'ve got the dragon\'s address. So which is it — going to Brakkis to kill the thing, or to finish something? Those are different fish. Most men only find out which at the very last stop."',delay:4800,pause:true},
+  ],
+  choices:[
+    {t:'"I\'ll let you know when I get there."', say:'I\'ll let you know when I get there.', next:'a3_drael_stop'},
+    {t:'"To finish something."', say:'To finish something. I think I already know which fish.', next:'a3_drael_stop'},
+  ]
+},
+a3_drael_stop:{
+  messages:[
+    {who:'soren',text:'Second stop cost two days I didn\'t have, three jumps the wrong way. Drael. Awaiting trial for running glass under Gorrik. Bad arm still carrying the memory of a noodle cart.',delay:3000},
+    {who:'soren',text:'No preamble. It was the only mercy I had. "Koro\'s alive. He rode the new glass, it nearly took him. There\'s a cure now — your chemist\'s daughter made it. He\'s on Coram Halt. He fetches water. He laughs."',delay:3800,pause:true},
+    {who:'soren',text:'The worn-out hate went out of his face all at once. The big enforcer who laughed exactly once in an eel-hauler cab put his head against the cold bars and wept, silent, the way men weep when they\'ve been certain of a grief so long that being wrong about it breaks something load-bearing.',delay:4600},
+    {who:'soren',text:'"He laughs," Drael said. Not a question. He just needed to say it out loud to believe it. Somebody finally got somebody off the routes.',delay:2900,pause:true},
+  ],
+  auto:'a3_brakkis'
+},
+a3_brakkis:{
+  chapter:{n:'Chapter Twelve',t:'The dead sea, again'},
+  messages:[
+    {who:'soren',text:'Brakkis is exactly as dead as I left it. The salt sea white and cracked to the curve of the world. The old refinery hanging off nothing at the edge of it. We came down the surface road six days early. Tib scanning, finding nothing, which scares him more than finding something.',delay:4400},
+    {who:'soren',text:'Yenna got out before I killed the engine and walked onto the salt. Forty paces. Crouched and put her violet hand flat. "Here. About here. I threw it about here." The weight. With the true hold-time stamped on the side.',delay:4200,pause:true},
+  ],
+  choices:[
+    {t:'"It\'s a salt flat, not deep water. It\'s still here. We dig."', say:'It\'s a salt flat, not deep water. It\'s still down there. We dig.', next:'a3_dig'},
+    {t:'"Leave it. The half-cure is enough. We came to end this, not to dig."', say:'Leave it. The pull with the hole is enough. We came to finish the run, not to dig up the past.', next:'a3_dig'},
+  ]
+},
+a3_dig:{
+  messages:[
+    {who:'soren',text:'I started digging anyway. Both hands, slow. After a moment she dug beside me. And Tib swore and climbed down and waddled out and dug too — small green-grey hands throwing salt — because the alternative was sitting in a hauler while the only two people he\'s never been fired from clawed at a dead sea.',delay:4400},
+    {who:'soren',text:'Found it at the bottom of the third hole, an hour in. A small brass weight, crusted grey-green, worn smooth on every face. She cleaned it with her thumb. Turned it to the moonlight to find the stamped face.',delay:3800,pause:true},
+    {who:'soren',text:'The number was gone. Not faded. Gone. A year in the salt ate the soft brass down to nothing. The one secret, dissolved into a dead sea.',delay:3000,pause:true},
+    {who:'yenna',text:'I got him back and I lost him in the same hour. That\'s the rim. The complete cure died in a kitchen with my father, and what\'s left just dissolved in a dead ocean. There\'s only the one with the hole in it now. Forever.',delay:4200,pause:true},
+  ],
+  choices:[
+    {t:'"Then the world gets the one with the hole in it. That\'s not nothing."', say:'Then the world gets the one with the hole in it. The one that walks around full of clear water and laughs. The most isn\'t the perfect thing. The most is the thing that\'s good enough and free.', next:'a3_lights'},
+    {t:'Just put your hand over hers. Say nothing.', say:'(put my hand over her closed fist on the cold brass — say nothing)', next:'a3_lights'},
+  ]
+},
+a3_lights:{
+  messages:[
+    {who:'soren',text:'She put the worn weight in the bag with the other twelve, where it\'ll balance scales for the rest of her life and never give up its one number again. Stood. Wiped the salt off her knees.',delay:3200},
+    {who:'soren',text:'And out across the dead flat, from the dark mouth of the old refinery, lights came on. The dragon came down early too.',delay:2600,pause:true},
+  ],
+  auto:'a3_smelter'
+},
+a3_smelter:{
+  chapter:{n:'Chapter Thirteen',t:'The Smelter'},
+  messages:[
+    {who:'soren',text:'She was the oldest thing I\'ve ever seen, Captain. And she was the same as Yenna. Those two facts arrived together and never came apart.',delay:2900},
+    {who:'soren',text:'Senne. Violet gone ashen, gone grey. The silver lines cracked white across her like a dry lakebed. White hair thin to the scalp. In a powered chair under a single working light. Dying the way the very old and the very poisoned die. Her name is Senne. She rode refined glass for decades until the smooth settle stopped buying her anything at all.',delay:4800,pause:true},
+    {who:'soren',text:'"Oren\'s girl," she says. "You have his hands. I funded him. Forty years ago, when the reef glass was nothing. I paid for his first bench. His first scales. The weights."',delay:3400,pause:true},
+  ],
+  auto:'a3_smelter2'
+},
+a3_smelter2:{
+  messages:[
+    {who:'soren',text:'"I built an empire to afford a thing that only delays the bill. By the time I went looking for the man who could make the glass let go, Gorrik had killed him in a kitchen over the small half. I\'ve spent six years and a fortune trying to buy the one thing on this rim that could keep me alive — and you, child, gave it away for free."',delay:4800,pause:true},
+    {who:'yenna',text:'Then why summon me? If you know you can\'t buy it?',delay:1900},
+    {who:'soren',text:'"Because I cannot buy it. That\'s the whole of it. I\'ve spent my life learning how to take. You made the one thing I needed into the single thing a taker cannot have — a gift. I\'m too far gone for the half you\'re handing out free. I need the whole of it, or I die in this chair. So I\'m asking. Not as the Smelter. There\'s no Smelter left."',delay:5200,pause:true},
+  ],
+  auto:'a3_show_weight'
+},
+a3_show_weight:{
+  messages:[
+    {who:'soren',text:'And Yenna took out the worn grey-green weight, the one we dug from the salt an hour ago, and held it up into the single light so the ancient dying woman could see the smooth blank face where a number used to be.',delay:3600},
+    {who:'yenna',text:'It\'s gone. He stamped the true hold-time here forty years ago so he\'d never lose it. I threw it in the sea a year ago to lose him. The salt ate the number. There is no one alive who will ever pull the glass clean again. I can\'t save you. Nobody can. You spent a lifetime making sure the only man who could was dead before he finished.',delay:5400,pause:true},
+    {who:'soren',text:'What crossed the ancient face wasn\'t rage. I\'d braced for rage. It was older and quieter and far worse — the look of a person handed, with total finality, the bill for a life, and finding it exactly as large as they always feared and refused to read.',delay:4400,pause:true},
+    {who:'soren',text:'That was when Roon moved. Out of the dark at the edge of the light. Pistol on Yenna. "She comes with me. The market\'s not dead, it just needs a new—"',delay:3200,pause:true},
+  ],
+  choices:[
+    {t:'Drop him — he\'s in your line.', say:'I\'ve got the angle. Taking the shot.', next:'a3_smelter_shoots', act:true},
+    {t:'Hold. Watch the Smelter\'s hands.', say:'Hold. The old woman\'s hand just moved in her lap. Watch her.', next:'a3_smelter_shoots'},
+  ]
+},
+a3_smelter_shoots:{
+  messages:[
+    {who:'soren',text:'The Smelter shot him. From the chair, with a small gun she\'d had in her lap the whole time. One round, clean. Castor Roon folded into the standing water with a look of pure betrayed accounting on his face. A voice silenced at last by the throat it spoke for.',delay:4200},
+    {who:'soren',text:'She let the gun drop into the water after him. "Eleven years he stood in my dark and he learned nothing. I will not let the last thing I do be teaching one more man to take."',delay:3600,pause:true},
+    {who:'soren',text:'"Bring me the half-cure, child. The one with the hole. I know it won\'t save me. But I have never once in my life been given a thing. Everything I held, I took. I\'d like — before the chair — to find out what the other way feels like. Even if it\'s too late. Especially if it\'s too late."',delay:5200,pause:true},
+  ],
+  checkpoint:true,
+  choices:[
+    {t:'"Make her earn it. She made the whole rim earn everything."', say:'You could make her earn it, Yenna. The way she made the whole rim earn everything.', next:'a3_gift'},
+    {t:'"Give it. Be the one thing she never learned how to take."', say:'Give it. Freely. Be the one thing on this rim she never learned how to take.', next:'a3_gift'},
+  ]
+},
+a3_gift:{
+  messages:[
+    {who:'soren',text:'Yenna knelt by her father\'s bench — Tib had hauled it in off the cab without being asked — and settled reef glass all the way down to the hole and no further. The imperfect pull. The year-buying mercy. And she carried it across the standing water in her two steady hands. Oren\'s hands. And gave it, freely, to the oldest and most poisoned thing on the rim.',delay:5400},
+    {who:'soren',text:'The Smelter took it the way you take a thing you\'ve decided to receive instead of seize. Drank it down. It was, as everyone in the room knew, far too late.',delay:3400,pause:true},
+    {who:'soren',text:'But the trembling eased. For a little while. And the ancient Senne looked at the violet girl who\'d given her the one un-bought thing of her whole long life, and she did the thing I\'ll carry off this dead sea and never quite set down. She said thank you. Out loud. Like a word she was using for the first time and testing the weight of.',delay:5400,pause:true},
+    {who:'soren',text:'She was gone before the moons set.',delay:1700},
+  ],
+  auto:'a3_holt_end'
+},
+a3_holt_end:{
+  messages:[
+    {who:'soren',text:'I stood over the empty chair a long while with the slug-gun still low. Never raised. I came down the surface road with a gun and a grudge and fourteen months of reasons, and I didn\'t fire it. The dragon died anyway, of itself, the way the rim kills everything it makes.',delay:4200},
+    {who:'soren',text:'Gorrik asked me whether I was coming to kill the thing or to finish something. I carried a weapon to the last stop and used my hands to hold a bench instead. Whatever kind of fish that makes me, it wasn\'t the kind that needed the gun. And it never had been.',delay:4400,pause:true},
+  ],
+  auto:'a3_holt_choice'
+},
+a3_holt_choice:{
+  messages:[
+    {who:'soren',text:'Captain Holt came down to Brakkis the next morning. Burned the last of a career she\'d spent three times over keeping me standing. She can\'t put me back under — my face is on a dozen ledgers. The Compact\'s done with me whether it likes it or not.',delay:3800,pause:true},
+    {who:'soren',text:'"But I can do one thing on my way out the door," she said. So this is your call too, Captain — the last one. The pull. The cure with a hole in it.',delay:2900,pause:true},
+  ],
+  choices:[
+    {t:'File it as recovered Compact asset — released to public domain, free to every clinic. Your name on the order.', say:'File it public domain. Free to every clinic on the Verge. Your name on the order, so nobody upstairs can quietly bury it later.', next:'a3_spring', act:true},
+    {t:'Let Sezhna\'s network move it quietly. Keep the Compact out of it.', say:'Keep the Compact out. Send it up Sezhna\'s network — she\'ll move it faster than the Compact ever could.', next:'a3_spring'},
+  ]
+},
+a3_spring:{
+  chapter:{n:'Chapter Fourteen',t:'The spring'},
+  messages:[
+    {who:'soren',text:'They\'ll demote her for it. Routes duty. The rim. The worst posting in the Compact. "I hear the water\'s clear out here, though," she said. "In places." It is, Captain. In places.',delay:3600},
+    {who:'soren',text:'The collapse ran its course. The operators walked off. The half-cut poison got rare, then a story old truckers told. It didn\'t become a good rim. It became a rim where the worst thing that happened to people stopped being the only thing that could. On the Verge, that\'s the most anyone ever got.',delay:4600},
+    {who:'soren',text:'Drael got out — the cure has a way of softening a sentence. Came to Coram Halt and drank clear water with the brother he\'d been so certain he\'d lost. Got somebody off the routes after all.',delay:3600,pause:true},
+  ],
+  auto:'a3_spring2'
+},
+a3_spring2:{
+  messages:[
+    {who:'soren',text:'We finished the run in the spring. Past where the settlements need the road. A spring that runs clear and cold out of a green-grey hillside — the thing my father promised and never delivered. The long run. The end of the road that turned out not to be an end so much as a stopping place a man finally let himself stop at.',delay:4800},
+    {who:'tib',text:'(having wired the water-tower speakers to play a freight-hauler jingle he swears is celebratory) I am always early. It\'s the bravest thing about me. The eye I lost was the one that wanted to be late. We\'re better off. Drink your water, Halgrave. You\'ve been threatening to finish this run for two years. Finish it.',delay:5000,pause:true},
+    {who:'soren',text:'Yenna laughed — a real one, easy now, the silver lines catching the spring light. Thirteen brass weights in the bag, the worn blank one among them. Her father returned to her hand with his last secret gone and his steady hands still in hers every time she settles the glass for someone the rim gave up on.',delay:4800,pause:true},
+  ],
+  auto:'a3_drink'
+},
+a3_drink:{
+  messages:[
+    {who:'soren',text:'There was never more road than time. There was only ever the question of whether, when the water finally came up clear, you were the kind of man who let himself stop and drink — or the kind who left the window unlatched and told himself arriving was a thing that happened to other people.',delay:5000},
+    {who:'soren',text:'I told a caged enforcer I\'d find out what kind of fish I was when I got to the last stop. I\'m at the last stop. The dragon\'s dead, the cure is free, the cycle\'s broken for one Khel family, and a sixteen-year-old laughs somewhere up the routes.',delay:4400,pause:true},
+    {who:'soren',text:'I\'m cupping my hands in the spring now. Drinking it the way I do everything. Slow. Both hands. Only this time the slowness isn\'t discipline. It isn\'t a tell. It\'s just a man at the end of a run his father never got to finish, finding, for the first time in his life, that he has all of it.',delay:5000,pause:true},
+    {who:'soren',text:'The water\'s clear, Captain. And I finally have nowhere left to be. Channel\'s closing. Thank you for running me home.',delay:3400,pause:true},
+  ],
+  ending:{kind:'good', kicker:'The man who finished the run',
+    title:'NOWHERE LEFT <span class="acc">TO BE</span>',
+    body:'The dragon died of what it sold. The cure went out free, the property of no one and the right of everyone. A burned Marshal, a chemist who made her peace with the hole, and a one-eyed liar dancing to a freight jingle he swears he chose on purpose — at a clear cold spring past the last stop on the long routes. It wasn\'t the perfect thing. It was the thing that was good enough, and free, and theirs. And he drank it slow.',
+    quote:'He had spent his whole life certain there was more road than time, and finally had nowhere left to be.',
+    stat:'THE LONG RUN — complete'}
+}
+
+};
+
+/* ============================================================
+   ENGINE  (adapted from OBJECT K-441)
+   ============================================================ */
+(function(){
+'use strict';
+const $ = s => document.querySelector(s);
+const chat=$('#chat'),dock=$('#dock'),hdr=$('#hdr'),title=$('#titleScreen'),endScr=$('#endScreen');
+const SAVE_KEY='tlr_save_v1', SND_KEY='tlr_snd';
+let state={node:null,checkpoint:'start',history:[],cover:'INTACT'};
+let soundOn=localStorage.getItem(SND_KEY)!=='off';
+let busy=false, skipReq=false, actx=null;
+
+/* AUDIO */
+function ac(){ if(!actx){ try{actx=new(window.AudioContext||window.webkitAudioContext)();}catch(e){} } return actx; }
+function beep(freq,dur,type,vol){
+  if(!soundOn) return; const c=ac(); if(!c) return;
+  try{
+    const o=c.createOscillator(),g=c.createGain();
+    o.type=type||'sine'; o.frequency.value=freq;
+    g.gain.setValueAtTime(0,c.currentTime);
+    g.gain.linearRampToValueAtTime(vol||0.04,c.currentTime+0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001,c.currentTime+(dur||0.12));
+    o.connect(g); g.connect(c.destination);
+    o.start(); o.stop(c.currentTime+(dur||0.12));
+  }catch(e){}
+}
+const snd={
+  msg(who){
+    if(who==='tib') beep(560,0.12,'square',0.028);
+    else if(who==='yenna') beep(500,0.16,'sine',0.03);
+    else if(who==='soren') beep(420,0.08,'sine',0.03);
+    else if(who==='you') beep(660,0.06,'triangle',0.035);
+    else beep(240,0.05,'sine',0.02);
+  },
+  choice(){ beep(700,0.05,'triangle',0.04); setTimeout(()=>beep(900,0.05,'triangle',0.035),60); },
+  tick(){ beep(1100,0.03,'square',0.02); },
+  alarm(){ beep(180,0.3,'sawtooth',0.05); setTimeout(()=>beep(160,0.3,'sawtooth',0.05),200); },
+  win(){ [523,659,784,1047].forEach((f,i)=>setTimeout(()=>beep(f,0.22,'sine',0.045),i*130)); },
+  dead(){ [300,260,200,120].forEach((f,i)=>setTimeout(()=>beep(f,0.35,'sawtooth',0.05),i*180)); }
+};
+
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function scrollDown(){ chat.scrollTop=chat.scrollHeight+400; }
+
+function setCover(t){
+  state.cover=t;
+  const el=$('#threatTxt'); if(el) el.innerHTML='COVER: <b>'+t+'</b>';
+  const dotc={INTACT:'#6fe39a',STRAINED:'#e9a23b',BLOWN:'#e0664f'};
+  $('#statusDot').style.background=dotc[t]||'#6fe39a';
+  $('#statusDot').style.boxShadow='0 0 8px '+(dotc[t]||'#6fe39a');
+}
+function setStatus(txt){ $('#statusTxt').textContent=txt; }
+
+function nameFor(who){
+  return {soren:'Soren Halgrave',tib:'TIB',yenna:'Yenna',you:'You',sys:''}[who]||'';
+}
+function addMessage(who,text){
+  const m=document.createElement('div');
+  m.className='msg '+who;
+  if(who==='sys'){
+    m.innerHTML='<div class="bub"><span class="ln"></span>'+text+'<span class="ln"></span></div>';
+  }else{
+    m.innerHTML='<div class="name">'+nameFor(who)+'</div><div class="bub">'+text+'</div>';
+  }
+  chat.appendChild(m); scrollDown(); snd.msg(who);
+  return m;
+}
+async function typing(who,ms){
+  if(who==='sys'){ await waitSkip(ms*0.5); return; }
+  const t=document.createElement('div');
+  t.className='typing'+(who==='tib'?' gr':'');
+  t.innerHTML='<span></span><span></span><span></span>';
+  chat.appendChild(t); scrollDown();
+  setStatus(who==='tib'?'TIB transmitting…':(who==='yenna'?'relayed…':'Soren typing…'));
+  await waitSkip(ms);
+  t.remove();
+  setStatus('secure channel · online');
+}
+async function waitSkip(ms){
+  const step=60; let waited=0;
+  while(waited<ms){ if(skipReq) return; await sleep(step); waited+=step; }
+}
+function lenFactor(text){
+  const base=480,per=26;
+  return Math.min(base+text.replace(/<[^>]+>/g,'').length*per*0.9,2600);
+}
+function chapterBanner(c){
+  const b=document.createElement('div');
+  b.className='chapbanner fade-in';
+  b.innerHTML='<div class="n">'+c.n+'</div><div class="t">— '+c.t+' —</div>';
+  chat.appendChild(b); scrollDown(); beep(520,0.5,'sine',0.03);
+}
+async function offlineWait(secs,titleTxt,descTxt){
+  return new Promise(resolve=>{
+    setStatus('offline'); setCover(state.cover);
+    $('#statusDot').style.animation='none'; $('#statusDot').style.opacity='.3';
+    const card=document.createElement('div');
+    card.className='waitcard fade-in';
+    card.innerHTML='<div class="t">'+(titleTxt||'SOREN IS DARK')+'</div>'+
+      '<div class="clock">--:--</div><div class="d">'+(descTxt||'back shortly')+'</div>'+
+      '<div class="skip">▸ skip wait</div>';
+    chat.appendChild(card); scrollDown();
+    const clock=card.querySelector('.clock');
+    let remain=secs;
+    const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+    clock.textContent=fmt(remain);
+    const done=()=>{
+      clearInterval(iv); card.remove();
+      $('#statusDot').style.animation=''; $('#statusDot').style.opacity='';
+      setStatus('secure channel · online'); resolve();
+    };
+    const iv=setInterval(()=>{
+      remain--; snd.tick();
+      if(remain<=0){ done(); return; }
+      clock.textContent=fmt(remain);
+    },1000);
+    card.querySelector('.skip').onclick=()=>{ snd.choice(); done(); };
+  });
+}
+
+function clearDock(){ dock.innerHTML=''; }
+function showContinue(next){
+  clearDock();
+  const b=document.createElement('button');
+  b.className='tapnext'; b.textContent='▸ continue';
+  b.onclick=()=>{ if(busy) return; snd.tick(); goto(next); };
+  dock.appendChild(b);
+}
+function showChoices(choices){
+  clearDock();
+  const wrap=document.createElement('div'); wrap.className='choices';
+  choices.forEach((c,i)=>{
+    const b=document.createElement('button');
+    b.className='choice'+(c.act?' act':'')+(c.danger?' danger':'');
+    b.innerHTML=c.t;
+    b.style.animationDelay=(i*0.06)+'s'; b.classList.add('fade-in');
+    b.onclick=()=>{
+      if(busy) return;
+      snd.choice(); clearDock();
+      if(c.say){ addMessage('you',c.say); }
+      setTimeout(()=>goto(c.next), c.say?420:120);
+    };
+    wrap.appendChild(b);
+  });
+  dock.appendChild(wrap);
+}
+
+/* COVER shifts by chapter/node */
+function ambientFor(id){
+  if(id==='a1_underlevels') setCover('STRAINED');
+  if(id==='a1_celebration') setCover('STRAINED');
+  if(id==='a1_docknine'){ setCover('BLOWN'); snd.alarm(); }
+  if(id==='a1_salt') setCover('BLOWN');
+  if(id==='a2_open') setCover('STRAINED');
+  if(id==='a2_roon_hits'){ setCover('BLOWN'); snd.alarm(); }
+  if(id==='a3_brakkis'){ setCover('BLOWN'); }
+}
+
+async function goto(id){
+  const node=STORY[id];
+  if(!node){ console.error('missing node:',id); return; }
+  state.node=id; state.history.push(id);
+  if(node.checkpoint) state.checkpoint=id;
+  save();
+
+  busy=true; skipReq=false; clearDock();
+  chat.onclick=()=>{ skipReq=true; };
+
+  if(node.chapter) chapterBanner(node.chapter);
+  ambientFor(id);
+
+  if(node.wait){ await offlineWait(node.wait.secs,node.wait.title,node.wait.desc); }
+
+  if(node.messages){
+    for(const msg of node.messages){
+      const pre=msg.delay?Math.min(msg.delay,2600):lenFactor(msg.text);
+      await typing(msg.who, skipReq?120:pre);
+      addMessage(msg.who,msg.text);
+      if(msg.pause&&!skipReq) await waitSkip(650);
+      else await sleep(120);
+    }
+  }
+  chat.onclick=null; busy=false;
+
+  if(node.ending){ return showEnding(node.ending); }
+  if(node.choices){ return showChoices(node.choices); }
+  if(node.auto){ return showContinue(node.auto); }
+}
+
+function showEnding(e){
+  clearDock();
+  const death=(e.kind==='death'||e.kind==='bad');
+  endScr.className='screen'+(death?' death':'');
+  $('#endSigil').innerHTML=death
+    ? '<svg viewBox="0 0 24 24" fill="none" stroke="#e0664f" stroke-width="1.5"><path d="M3 12 h7 l2 -5 l2 10 l2 -5 h5"/><path d="M5 5 l14 14" stroke="#e0664f"/></svg>'
+    : '<svg viewBox="0 0 24 24" fill="none" stroke="#e9a23b" stroke-width="1.5"><path d="M3 12 h7 l2 -5 l2 10 l2 -5 h5"/></svg>';
+  $('#endKicker').textContent=e.kicker||'';
+  $('#endTitle').innerHTML=e.title||'';
+  $('#endBody').textContent=e.body||'';
+  const q=$('#endQuote');
+  if(e.quote){ q.style.display='block'; q.textContent='“'+e.quote+'”'; } else q.style.display='none';
+
+  const btns=$('#endBtns'); btns.innerHTML='';
+  if(death){
+    snd.dead();
+    const cp=e.retry||state.checkpoint;
+    btns.append(
+      mkBtn('amber','▸ Try again',()=>{ hideEnd(); goto(cp); }),
+      mkBtn('ghost','Restart from the beginning',()=>{ wipe(); hideEnd(); goto('start'); })
+    );
+    if(e.stat){ const s=document.createElement('p'); s.className='statline'; s.textContent=e.stat; btns.appendChild(s); }
+  }else{
+    snd.win();
+    if(e.next){
+      btns.appendChild(mkBtn('','▸ Continue the saga',()=>{ hideEnd(); goto(e.next); }));
+      btns.appendChild(mkBtn('ghost','Play again from the start',()=>{ wipe(); hideEnd(); goto('start'); }));
+    }else{
+      btns.appendChild(mkBtn('','▸ Play again',()=>{ wipe(); hideEnd(); goto('start'); }));
+    }
+    if(e.stat){ const s=document.createElement('p'); s.className='statline'; s.textContent='✓ '+e.stat; btns.appendChild(s); }
+  }
+  endScr.classList.remove('hide');
+}
+function mkBtn(cls,txt,fn){
+  const b=document.createElement('button');
+  b.className='btn '+cls; b.textContent=txt;
+  b.onclick=()=>{ snd.choice(); fn(); };
+  return b;
+}
+function hideEnd(){ endScr.classList.add('hide'); }
+
+function save(){ try{ localStorage.setItem(SAVE_KEY,JSON.stringify({node:state.node,checkpoint:state.checkpoint,cover:state.cover})); }catch(e){} }
+function load(){ try{ const s=JSON.parse(localStorage.getItem(SAVE_KEY)); return s&&s.node?s:null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(SAVE_KEY); }catch(e){} state={node:null,checkpoint:'start',history:[],cover:'INTACT'}; chat.innerHTML=''; }
+
+function startGame(fromNode){
+  title.style.display='none'; hdr.style.visibility='visible'; chat.innerHTML='';
+  setCover('INTACT'); goto(fromNode||'start');
+}
+function refreshSoundLabel(){
+  $('#sndState').textContent=soundOn?'on':'off';
+  $('#btnSound')&&($('#btnSound').style.color=soundOn?'var(--amber)':'var(--dim)');
+}
+$('#btnNew').onclick=()=>{ ac(); snd.choice(); wipe(); startGame('start'); };
+$('#btnSound').onclick=()=>{ soundOn=!soundOn; localStorage.setItem(SND_KEY,soundOn?'on':'off'); refreshSoundLabel(); if(soundOn) snd.tick(); toast(soundOn?'sound on':'sound off'); };
+$('#btnMenu').onclick=()=>{
+  if(confirm('Back to the title screen? Your progress is saved at the last checkpoint.')){
+    title.style.display='flex'; hdr.style.visibility='hidden'; clearDock(); checkContinue();
+  }
+};
+function checkContinue(){
+  const s=load(); const btn=$('#btnContinue');
+  if(s){
+    btn.style.display='block';
+    btn.onclick=()=>{ ac(); snd.choice(); state.checkpoint=s.checkpoint||'start'; state.cover=s.cover||'INTACT'; startGame(s.checkpoint||s.node); };
+  }else{ btn.style.display='none'; }
+}
+let toastTimer=null;
+function toast(t){
+  const el=$('#toast'); el.textContent=t; el.classList.add('show');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),1600);
+}
+refreshSoundLabel(); checkContinue();
+})();
+</script>
+</body>
+</html>
