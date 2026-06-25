@@ -1,0 +1,1955 @@
+[
+  {
+    "id": "sys_20f3d7d8",
+    "who": "sys",
+    "node": "start",
+    "idx": 0,
+    "text": "secure channel open · cinderhault station"
+  },
+  {
+    "id": "sys_a02ff260",
+    "who": "sys",
+    "node": "start",
+    "idx": 1,
+    "text": "asset: marshal s. halgrave · 14 months deep"
+  },
+  {
+    "id": "soren_b4e9f359",
+    "who": "soren",
+    "node": "start",
+    "idx": 2,
+    "text": "You there, Captain? Channel's clean. Tib swept it twice."
+  },
+  {
+    "id": "tib_355d55af",
+    "who": "tib",
+    "node": "start",
+    "idx": 3,
+    "text": "I swept it three times. I am a professional. I have a master's understanding of fifteen frontier dialects and all of them have a word for \"stop micromanaging me.\""
+  },
+  {
+    "id": "soren_77b0620c",
+    "who": "soren",
+    "node": "start",
+    "idx": 4,
+    "text": "Sitting at Ladle's on the promenade. Eating a fish. Whole thing, head and all, in a lake of black sauce."
+  },
+  {
+    "id": "soren_d518ee35",
+    "who": "soren",
+    "node": "start",
+    "idx": 5,
+    "text": "Slow. Both hands. No clock that can touch me. Fourteen months under teaches you that. Hurry is a tell."
+  },
+  {
+    "id": "soren_f4e8a644",
+    "who": "soren",
+    "node": "a1_promenade",
+    "idx": 0,
+    "text": "Gorrik's still the only rung I've reached. Bottom of the chain. He runs polish through here, kicks his cut up to a buyer nobody's ever seen."
+  },
+  {
+    "id": "soren_87f7535f",
+    "who": "soren",
+    "node": "a1_promenade",
+    "idx": 1,
+    "text": "The Smelter. The dragon in the cave. That's the face you actually want, Captain. Not mine sitting in fish sauce."
+  },
+  {
+    "id": "tib_b8ccbe5d",
+    "who": "tib",
+    "node": "a1_promenade",
+    "idx": 2,
+    "text": "Tell her about the dignity I have lost to a fish. It's relevant. It's context."
+  },
+  {
+    "id": "soren_3eb7b1d8",
+    "who": "soren",
+    "node": "a1_promenade",
+    "idx": 3,
+    "text": "Hold on."
+  },
+  {
+    "id": "soren_d367a6be",
+    "who": "soren",
+    "node": "a1_promenade",
+    "idx": 4,
+    "text": "Something's happening across the promenade. Screaming."
+  },
+  {
+    "id": "soren_01061a04",
+    "who": "soren",
+    "node": "a1_dragged",
+    "idx": 0,
+    "text": "A girl. Senne — violet skin, silver lines running through her like cracks in old glaze. White hair, half loose. Barefoot."
+  },
+  {
+    "id": "soren_cc4d4b8c",
+    "who": "soren",
+    "node": "a1_dragged",
+    "idx": 1,
+    "text": "Somebody's put her in a thin silver shift. The kind a house puts on a thing it means to sell."
+  },
+  {
+    "id": "soren_eac7f2f7",
+    "who": "soren",
+    "node": "a1_dragged",
+    "idx": 2,
+    "text": "Two Khel have her. Big as cargo. Kin-marks tattooed black. One's laughing. The crowd's parting for them. Nobody on Cinderhault gets rich minding another man's cargo."
+  },
+  {
+    "id": "tib_325bd40a",
+    "who": "tib",
+    "node": "a1_dragged",
+    "idx": 3,
+    "text": "Halgrave. Whatever this is, it has a return address. We are fourteen months into the only operation I have never been fired from."
+  },
+  {
+    "id": "soren_10c8f260",
+    "who": "soren",
+    "node": "a1_hold",
+    "idx": 0,
+    "text": "That's the sensible call. The cold one. The one the cartel would make."
+  },
+  {
+    "id": "soren_64996523",
+    "who": "soren",
+    "node": "a1_hold",
+    "idx": 1,
+    "text": "The laughing one just got a hand in her hair. She made a sound that wasn't a word."
+  },
+  {
+    "id": "soren_87b58857",
+    "who": "soren",
+    "node": "a1_hold",
+    "idx": 2,
+    "text": "...I'm going to finish the fish first. The good bite. The cheek meat. The one a patient man saves."
+  },
+  {
+    "id": "soren_95033df7",
+    "who": "soren",
+    "node": "a1_hold",
+    "idx": 3,
+    "text": "Chewed. Swallowed. Set the chopsticks down square."
+  },
+  {
+    "id": "tib_19ee879f",
+    "who": "tib",
+    "node": "a1_hold",
+    "idx": 4,
+    "text": "You finished the fish. You absolute monument. You finished the fish and you're standing up anyway."
+  },
+  {
+    "id": "soren_3c494312",
+    "who": "soren",
+    "node": "a1_move",
+    "idx": 0,
+    "text": "I cross the promenade the way water crosses a floor. Finding the low ground."
+  },
+  {
+    "id": "soren_1891f82c",
+    "who": "soren",
+    "node": "a1_move",
+    "idx": 1,
+    "text": "Hand on the wrist that holds her hair. One quarter turn. The joint goes past where joints are meant to go."
+  },
+  {
+    "id": "soren_767d9c58",
+    "who": "soren",
+    "node": "a1_move",
+    "idx": 2,
+    "text": "Walk the big body into a noodle cart. It folds like a cheap suitcase. The second one reaches for a club — I take it off him and lay it once across the back of the knee."
+  },
+  {
+    "id": "soren_62cfee6c",
+    "who": "soren",
+    "node": "a1_move",
+    "idx": 3,
+    "text": "Four seconds. I didn't hurry."
+  },
+  {
+    "id": "soren_7d6f43d8",
+    "who": "soren",
+    "node": "a1_move",
+    "idx": 4,
+    "text": "She's looking at me. Not grateful. Calculating. She's doing arithmetic on me already."
+  },
+  {
+    "id": "yenna_3baa77f3",
+    "who": "yenna",
+    "node": "a1_move",
+    "idx": 5,
+    "text": "You stupid — you have no idea what you just bought."
+  },
+  {
+    "id": "sys_938d6ea0",
+    "who": "sys",
+    "node": "a1_underlevels",
+    "idx": 0,
+    "text": "cover strained · face logged into a ledger that does not forgive"
+  },
+  {
+    "id": "soren_2ac8dba1",
+    "who": "soren",
+    "node": "a1_underlevels",
+    "idx": 1,
+    "text": "Got her off the promenade through the back of Ladle's, down into the under-levels. The chase fell apart in the dark the way chases do."
+  },
+  {
+    "id": "soren_ecfb72bc",
+    "who": "soren",
+    "node": "a1_underlevels",
+    "idx": 2,
+    "text": "Dead pump room. One buzzing strip-light. Her name's Yenna. Yenna Sorrel."
+  },
+  {
+    "id": "yenna_2324e043",
+    "who": "yenna",
+    "node": "a1_underlevels",
+    "idx": 3,
+    "text": "Those were Gorrik's. You know Gorrik?"
+  },
+  {
+    "id": "yenna_94e51358",
+    "who": "yenna",
+    "node": "a1_ledger",
+    "idx": 0,
+    "text": "Reef glass. They drag it up out of the dead sea on Brakkis. Raw, it's poison — ride it twice and you're done. Junk substance for years. Until somebody learned how to settle it."
+  },
+  {
+    "id": "yenna_dc416137",
+    "who": "yenna",
+    "node": "a1_ledger",
+    "idx": 1,
+    "text": "Refine it so it lays down smooth. So a man can ride it a hundred times and lose a year instead of all of it. That's the only thing the Smelter ever wanted to buy. Not the glass. The settling."
+  },
+  {
+    "id": "soren_6f16810c",
+    "who": "soren",
+    "node": "a1_ledger",
+    "idx": 2,
+    "text": "\"And Gorrik has the settling.\""
+  },
+  {
+    "id": "yenna_160cbfa1",
+    "who": "yenna",
+    "node": "a1_ledger",
+    "idx": 3,
+    "text": "No. Gorrik has me."
+  },
+  {
+    "id": "soren_3c857c40",
+    "who": "soren",
+    "node": "a1_ledger",
+    "idx": 4,
+    "text": "There it is, Captain. The girl in the shift isn't merchandise. She's the ledger."
+  },
+  {
+    "id": "yenna_b09467c9",
+    "who": "yenna",
+    "node": "a1_father",
+    "idx": 0,
+    "text": "My father worked it out. Oren Sorrel. Best chemist on three rims, worst at picking who to work for. Gorrik came to take the method. My father wouldn't hand it over."
+  },
+  {
+    "id": "yenna_98023b6e",
+    "who": "yenna",
+    "node": "a1_father",
+    "idx": 1,
+    "text": "Gorrik lost his temper. He always loses his temper. Killed him in our own kitchen before he had the whole of it. The rest lives in here now."
+  },
+  {
+    "id": "yenna_36da2468",
+    "who": "yenna",
+    "node": "a1_father",
+    "idx": 2,
+    "text": "I held the spoons. I know the parts he never wrote down. So Gorrik can't kill me, can't trust me, can't sell me until he's wrung the last of it out. So he keeps me. Walks me around."
+  },
+  {
+    "id": "tib_8cb95287",
+    "who": "tib",
+    "node": "a1_father",
+    "idx": 3,
+    "text": "Oh, I do not like the math on this girl."
+  },
+  {
+    "id": "soren_fe409ac0",
+    "who": "soren",
+    "node": "a1_brine",
+    "idx": 0,
+    "text": "Took her to Madame Sezhna at the Brine House. Old woman who knows everything on Cinderhault and sells most of it. She owes me."
+  },
+  {
+    "id": "yenna_53c0cf95",
+    "who": "yenna",
+    "node": "a1_brine",
+    "idx": 1,
+    "text": "(behind me, quiet) Six years. He's had me six years."
+  },
+  {
+    "id": "soren_8fbfda9f",
+    "who": "soren",
+    "node": "a1_brine",
+    "idx": 2,
+    "text": "Sezhna poured three cups without being asked. Says Gorrik put a price on my head an hour ago. Says it's not a flattering price — he undervalues me."
+  },
+  {
+    "id": "soren_fec2a6f7",
+    "who": "soren",
+    "node": "a1_brine",
+    "idx": 3,
+    "text": "Then she gave me a thing for free, which she never does. There's a buyer's meet already set. The Smelter's people. Dock Nine. Inside the week."
+  },
+  {
+    "id": "soren_0ed02fda",
+    "who": "soren",
+    "node": "a1_sezhna_why",
+    "idx": 0,
+    "text": "She said the Smelter has eaten three of her best customers' operations in two years. Bad for the rim. Worse for business."
+  },
+  {
+    "id": "yenna_2c2ac6fa",
+    "who": "yenna",
+    "node": "a1_sezhna_why",
+    "idx": 1,
+    "text": "(she's watching Sezhna like a card that turned up wrong)"
+  },
+  {
+    "id": "soren_f9ccd934",
+    "who": "soren",
+    "node": "a1_sezhna_why",
+    "idx": 2,
+    "text": "\"I would like the Smelter to choke,\" she said. \"I do not have hands for it. You have hands.\""
+  },
+  {
+    "id": "soren_19556534",
+    "who": "soren",
+    "node": "a1_gethired",
+    "idx": 0,
+    "text": "Plan's simple, Captain. Get inside Gorrik's crew. Get to the meet. Be standing at Dock Nine when the dragon comes down out of the cave."
+  },
+  {
+    "id": "soren_3eade992",
+    "who": "soren",
+    "node": "a1_gethired",
+    "idx": 1,
+    "text": "I need to get hired."
+  },
+  {
+    "id": "tib_3f2975b5",
+    "who": "tib",
+    "node": "a1_gethired",
+    "idx": 2,
+    "text": "You broke two of his men over a girl. Your name is at the very top of his list. He'll either kill you or use you. On the rim, the door's the same."
+  },
+  {
+    "id": "sys_f595d255",
+    "who": "sys",
+    "node": "a1_drael",
+    "idx": 0,
+    "text": "two nights later"
+  },
+  {
+    "id": "soren_cade70bf",
+    "who": "soren",
+    "node": "a1_drael",
+    "idx": 1,
+    "text": "Drael came to the Brine House. The Khel I folded into the noodle cart — arm in a brace now, grudge fully grown. Four others with him."
+  },
+  {
+    "id": "soren_3d01b145",
+    "who": "soren",
+    "node": "a1_drael",
+    "idx": 2,
+    "text": "Flat offer: Gorrik wants to meet the human who hits hard and doesn't run. Come quiet, there's work. Come loud, there's the other thing."
+  },
+  {
+    "id": "tib_0d55a9f9",
+    "who": "tib",
+    "node": "a1_loud",
+    "idx": 0,
+    "text": "Loud. He said COME LOUD AND THERE'S THE OTHER THING and you heard \"bring a gun.\" Halgrave. The other thing is a hole in the salt."
+  },
+  {
+    "id": "soren_efc7d3bc",
+    "who": "soren",
+    "node": "a1_loud",
+    "idx": 1,
+    "text": "He's right. A man who comes to Gorrik armed and bristling is a man telling Gorrik he expects to need it. That's a confession."
+  },
+  {
+    "id": "soren_6e690e94",
+    "who": "soren",
+    "node": "a1_loud",
+    "idx": 2,
+    "text": "I come quiet. It's the only door that doesn't close behind me."
+  },
+  {
+    "id": "soren_bc6bbb4f",
+    "who": "soren",
+    "node": "a1_quiet",
+    "idx": 0,
+    "text": "Took Tib. Separating from Tib has never once gone well, and under the noise he's the best eyes and ears on the station."
+  },
+  {
+    "id": "tib_fd9041b5",
+    "who": "tib",
+    "node": "a1_quiet",
+    "idx": 1,
+    "text": "That is the single nicest thing you have ever said to me and I am going to ruin it by reminding you I once short-circuited your door panel and called it a security audit."
+  },
+  {
+    "id": "soren_a587f419",
+    "who": "soren",
+    "node": "a1_quiet",
+    "idx": 2,
+    "text": "Gorrik keeps his shop in a gutted refinery hung off the station's underside. Cathedral of dead machinery and standing water."
+  },
+  {
+    "id": "soren_8dc5aedf",
+    "who": "soren",
+    "node": "a1_gorrik",
+    "idx": 0,
+    "text": "Gorrik's bigger than his men. Quieter. The only kind of big that ought to scare you. He looked at me a long time, the patience of a man choosing a cut of meat."
+  },
+  {
+    "id": "soren_b7a1f0a3",
+    "who": "soren",
+    "node": "a1_gorrik",
+    "idx": 1,
+    "text": "\"You cost me two workers. Over a thing that wasn't yours.\""
+  },
+  {
+    "id": "soren_1c71ad12",
+    "who": "soren",
+    "node": "a1_gorrik",
+    "idx": 2,
+    "text": "I told him I don't like loud. His boys were loud."
+  },
+  {
+    "id": "soren_1aa4c9a2",
+    "who": "soren",
+    "node": "a1_gorrik",
+    "idx": 3,
+    "text": "He has a run going out. Brakkis surface to the high docks. Product frozen inside gutted eel-haulers — scanners read it as fish, fish is dull. Drael rides with me so he'll know if I'm a tira."
+  },
+  {
+    "id": "tib_3c3cdf2c",
+    "who": "tib",
+    "node": "a1_gorrik",
+    "idx": 4,
+    "text": "A what?"
+  },
+  {
+    "id": "soren_662c183c",
+    "who": "soren",
+    "node": "a1_gorrik",
+    "idx": 5,
+    "text": "A cop. A planted lawman. He said it watching my face for the flinch. I gave him nothing. Giving nothing is the one thing fourteen months taught me to do well."
+  },
+  {
+    "id": "soren_0e171bd3",
+    "who": "soren",
+    "node": "a1_pushback",
+    "idx": 0,
+    "text": "Gorrik almost smiled. \"Then you walk back up to the promenade and wait for my price to find you. Eager or dead. Pick.\""
+  },
+  {
+    "id": "soren_de407014",
+    "who": "soren",
+    "node": "a1_pushback",
+    "idx": 1,
+    "text": "A little reluctance keeps it honest. Too much and I'm back to square one with a bounty on me. I take the run."
+  },
+  {
+    "id": "soren_598e9f2f",
+    "who": "soren",
+    "node": "a1_run_intro",
+    "idx": 0,
+    "text": "So now I'm in the cab of a stinking eel-hauler at two in the station morning, beside a Khel who wants me dead, hauling enough frozen poison to put down a small moon. Tib's in the glovebox."
+  },
+  {
+    "id": "tib_43a08f30",
+    "who": "tib",
+    "node": "a1_run_intro",
+    "idx": 1,
+    "text": "(muffled) I want it on the record that I am in a refrigerated compartment with a dead eel and the eel has more legroom than I do. I have lost a dignity contest to a fish. A SECOND fish, Captain."
+  },
+  {
+    "id": "soren_97841c46",
+    "who": "soren",
+    "node": "a1_run_intro",
+    "idx": 2,
+    "text": "Coming up off the Brakkis surface road. Dead salt sea below us, white and cracked to the curve of the world. Checkpoint at the foot of the high docks. Going quiet now. Don't panic if I drop."
+  },
+  {
+    "id": "soren_c60d53c3",
+    "who": "soren",
+    "node": "a1_checkpoint",
+    "idx": 0,
+    "text": "Back. Trooper waved us down. Bored slouch, scanner in hand. Drael went tight beside me. Whole run hanging on the next forty seconds."
+  },
+  {
+    "id": "soren_189a5f93",
+    "who": "soren",
+    "node": "a1_checkpoint",
+    "idx": 1,
+    "text": "\"Glovebox,\" the trooper says. \"Open it.\""
+  },
+  {
+    "id": "soren_195cf287",
+    "who": "soren",
+    "node": "a1_checkpoint",
+    "idx": 2,
+    "text": "Tib's in the glovebox."
+  },
+  {
+    "id": "soren_095b92c1",
+    "who": "soren",
+    "node": "a1_stall",
+    "idx": 0,
+    "text": "\"It's stuck. Latch is shot. Whole rig's held together with spit.\""
+  },
+  {
+    "id": "soren_004ab277",
+    "who": "soren",
+    "node": "a1_stall",
+    "idx": 1,
+    "text": "\"Open the glovebox,\" the trooper says again. Not a man who likes the word no."
+  },
+  {
+    "id": "soren_53ad67bc",
+    "who": "soren",
+    "node": "a1_stall",
+    "idx": 2,
+    "text": "And Drael — who hates me, who has a grudge and a braced arm and a deep suspicion I'm exactly what Gorrik fears — Drael smiles, and reaches over, and pops the latch himself."
+  },
+  {
+    "id": "soren_f48ceb6b",
+    "who": "soren",
+    "node": "a1_tibgag",
+    "idx": 0,
+    "text": "The door falls open. Trooper leans in with the scanner."
+  },
+  {
+    "id": "soren_0cc8a44d",
+    "who": "soren",
+    "node": "a1_tibgag",
+    "idx": 1,
+    "text": "Tib comes out already in motion — not at the trooper, AWAY, straight up the inside of the windscreen — and triggers the Persuader. Every scanner inside ten feet throws a screaming fit."
+  },
+  {
+    "id": "tib_8722dfea",
+    "who": "tib",
+    "node": "a1_tibgag",
+    "idx": 2,
+    "text": "(clinging upside down to the visor) I'M SORRY, I'M SO SORRY, I HAVE A WEAK GRIP, IT'S A MEDICAL—"
+  },
+  {
+    "id": "soren_ec7d594d",
+    "who": "soren",
+    "node": "a1_tibgag",
+    "idx": 3,
+    "text": "He loses his grip — of course he does — and falls directly into the trooper's open collar. There is no training for an alien in your shirt."
+  },
+  {
+    "id": "soren_6d7904f1",
+    "who": "soren",
+    "node": "a1_tibgag",
+    "idx": 4,
+    "text": "Trooper goes over backward into his own checkpoint. I roll us through the lifted barrier at a stately, law-abiding crawl."
+  },
+  {
+    "id": "soren_56156cf2",
+    "who": "soren",
+    "node": "a1_drael_laughs",
+    "idx": 0,
+    "text": "Circled back for Tib. He's sitting in a puddle being violently dignified about it."
+  },
+  {
+    "id": "soren_3fc59d4f",
+    "who": "soren",
+    "node": "a1_drael_laughs",
+    "idx": 1,
+    "text": "And Drael's laughing. Actually laughing — a great wet Khel honk, hatred briefly suspended in pure animal delight. \"That,\" he wheezes, \"is the ugliest, dumbest, luckiest little thing I have ever seen, and it just walked us through a checkpoint.\""
+  },
+  {
+    "id": "tib_aef4dbf0",
+    "who": "tib",
+    "node": "a1_drael_laughs",
+    "idx": 2,
+    "text": "I am extremely for sale. I have a price. It is very high and it includes a heated compartment and a no-eel clause."
+  },
+  {
+    "id": "soren_fd292d93",
+    "who": "soren",
+    "node": "a1_drael_laughs",
+    "idx": 3,
+    "text": "Brought the run home clean. For one long drive across a dead sea, Drael forgot to hate me. Closest thing to a good night I've had in fourteen months."
+  },
+  {
+    "id": "soren_9714a976",
+    "who": "soren",
+    "node": "a1_pumproom",
+    "idx": 0,
+    "text": "Yenna won't sleep where Sezhna offered. Sleeps in the dead pump room. I bring her food. We eat in the buzzing light and don't talk, and the not-talking is its own kind of talking."
+  },
+  {
+    "id": "soren_1cd2002f",
+    "who": "soren",
+    "node": "a1_pumproom",
+    "idx": 1,
+    "text": "Tonight she had a small thing out. A brass weight, worn smooth, dull gold. A number stamped on the side, too faded to read."
+  },
+  {
+    "id": "yenna_ec156ef9",
+    "who": "yenna",
+    "node": "a1_pumproom",
+    "idx": 2,
+    "text": "My father's. From the bench. You balance the scale against it when you're settling the glass — too heavy it cuts, too light it won't lay down. It's the only thing of his I have. The one piece nobody wanted."
+  },
+  {
+    "id": "soren_1596d445",
+    "who": "soren",
+    "node": "a1_pumproom",
+    "idx": 3,
+    "text": "She looked at me and asked the one thing I don't have a cover answer for."
+  },
+  {
+    "id": "yenna_90b7ed57",
+    "who": "yenna",
+    "node": "a1_pumproom",
+    "idx": 4,
+    "text": "What's your real name?"
+  },
+  {
+    "id": "soren_6aa1b2d9",
+    "who": "soren",
+    "node": "a1_realname",
+    "idx": 0,
+    "text": "I almost did. Felt it come up the back of my throat — the whole weight of it. My name, my badge, why I let her break two arms over me."
+  },
+  {
+    "id": "soren_b97b53ac",
+    "who": "soren",
+    "node": "a1_realname",
+    "idx": 1,
+    "text": "But she lives inside Gorrik's machine. And Gorrik tests. A secret given is a secret that can be wrung out of someone in a kitchen with the scale knocked off the bench."
+  },
+  {
+    "id": "soren_124eddb7",
+    "who": "soren",
+    "node": "a1_realname",
+    "idx": 2,
+    "text": "So I gave her a true thing instead. My father drove a salvage hauler. Promised me a long run when I was old enough to be useful. Sold the hauler when I was eleven to pay a debt I didn't know we had. Never did the run."
+  },
+  {
+    "id": "soren_4d1f7229",
+    "who": "soren",
+    "node": "a1_realname",
+    "idx": 3,
+    "text": "\"Halgrave,\" I said. \"Just Halgrave.\" She watched my face do the math and lose. She wasn't fooled. And she decided, deliberately, not to push."
+  },
+  {
+    "id": "soren_e77f0476",
+    "who": "soren",
+    "node": "a1_holdname",
+    "idx": 0,
+    "text": "\"Halgrave. Just Halgrave.\""
+  },
+  {
+    "id": "soren_0a7ca81f",
+    "who": "soren",
+    "node": "a1_holdname",
+    "idx": 1,
+    "text": "She watched my face do the math and lose. She wasn't fooled — she's been read by experts and she can read back. And she decided, deliberately, not to push."
+  },
+  {
+    "id": "soren_20efb7d8",
+    "who": "soren",
+    "node": "a1_holdname",
+    "idx": 2,
+    "text": "Kindest thing anyone's done for me in fourteen months. Broke something loose in my chest I'd been counting on staying nailed down."
+  },
+  {
+    "id": "sys_6ea33af2",
+    "who": "sys",
+    "node": "a1_celebration",
+    "idx": 0,
+    "text": "three nights before the meet"
+  },
+  {
+    "id": "soren_54bac2f8",
+    "who": "soren",
+    "node": "a1_celebration",
+    "idx": 1,
+    "text": "Gorrik called me in. Put a cup in my hand, clapped my shoulder with a hand like a loading clamp. All warmth. I read the warmth the way you read a flat sea before weather."
+  },
+  {
+    "id": "soren_25c71e24",
+    "who": "soren",
+    "node": "a1_celebration",
+    "idx": 2,
+    "text": "Yenna's in the corner. On her knees. Wrists bound. White hair across her face."
+  },
+  {
+    "id": "soren_2bd54c78",
+    "who": "soren",
+    "node": "a1_celebration",
+    "idx": 3,
+    "text": "\"My friend the human,\" Gorrik says to the room. Then the warmth goes out of his face like a switch. \"Doesn't tell me where he sleeps. Or where the ledger sleeps. She's been gone a week. And then you turn up.\""
+  },
+  {
+    "id": "soren_af0fb395",
+    "who": "soren",
+    "node": "a1_celebration",
+    "idx": 4,
+    "text": "Drael draws a long worker's blade. \"Tell me where you've stashed her. I believe you, or we open you up and see what kind of fish you are.\""
+  },
+  {
+    "id": "soren_d25e7239",
+    "who": "soren",
+    "node": "a1_betray",
+    "idx": 0,
+    "text": "I gave up the pump room. To Gorrik. To buy a few more hours of breathing."
+  },
+  {
+    "id": "soren_ec9becd8",
+    "who": "soren",
+    "node": "a1_betray",
+    "idx": 1,
+    "text": "He sent four men. They took Yenna back and they took Sezhna's loyalty out behind the Brine House and ended it. And me — Gorrik kept me close, smiling, because a man who sells out the girl he saved is a man you can always sell again."
+  },
+  {
+    "id": "soren_6c421c8d",
+    "who": "soren",
+    "node": "a1_violence",
+    "idx": 0,
+    "text": "I went for the blade before he finished the sentence."
+  },
+  {
+    "id": "soren_52619efc",
+    "who": "soren",
+    "node": "a1_violence",
+    "idx": 1,
+    "text": "But Gorrik runs on stillness too. We're the same animal — I clocked that the first night. He was waiting for exactly this. He had two men on me before I cleared the table."
+  },
+  {
+    "id": "soren_54365ccb",
+    "who": "soren",
+    "node": "a1_violence",
+    "idx": 2,
+    "text": "And a body with a Compact Marshal's identity chip riding under the collarbone is a body that ends the operation, your career, and Yenna's life. They found the chip."
+  },
+  {
+    "id": "soren_4f4dd855",
+    "who": "soren",
+    "node": "a1_lecture",
+    "idx": 0,
+    "text": "Didn't move. Drank instead. Then I did the thing nobody at Dock Nine ever taught me, because it was the only thing left."
+  },
+  {
+    "id": "soren_fedca451",
+    "who": "soren",
+    "node": "a1_lecture",
+    "idx": 1,
+    "text": "\"You want to know what kind of fish I am. Fine. The kind that doesn't sit on the floor.\""
+  },
+  {
+    "id": "soren_54799960",
+    "who": "soren",
+    "node": "a1_lecture",
+    "idx": 2,
+    "text": "\"You've got one ledger in the universe and she lives in her own head, and if your boy nicks her wrong she stops being a fortune and starts being a funeral. I moved her because your men drag her through markets. Loud. The Smelter's people have eyes here. I kept your price up.\""
+  },
+  {
+    "id": "soren_32231965",
+    "who": "soren",
+    "node": "a1_lecture",
+    "idx": 3,
+    "text": "\"You want to thank me, or stick me and explain the empty drawer to the dragon yourself?\""
+  },
+  {
+    "id": "soren_caa3f4cd",
+    "who": "soren",
+    "node": "a1_lecture",
+    "idx": 4,
+    "text": "All true except the why. And the why was the only part that mattered."
+  },
+  {
+    "id": "soren_c290b6e2",
+    "who": "soren",
+    "node": "a1_lecture2",
+    "idx": 0,
+    "text": "Gorrik looked at me a long, long time. The blade hung in Drael's hand."
+  },
+  {
+    "id": "soren_22f44d81",
+    "who": "soren",
+    "node": "a1_lecture2",
+    "idx": 1,
+    "text": "Then he laughed, low and ugly. \"He's right, though. That's the worst part. He's right.\" Slid the blade away. Cut Yenna loose."
+  },
+  {
+    "id": "soren_f96d10d9",
+    "who": "soren",
+    "node": "a1_lecture2",
+    "idx": 2,
+    "text": "\"Three nights. Dock Nine. You stand next to me and watch a man become rich. And after — we'll find out what kind of fish you really are. There's always an after.\""
+  },
+  {
+    "id": "tib_b2c781e7",
+    "who": "tib",
+    "node": "a1_lecture2",
+    "idx": 3,
+    "text": "I have reviewed the footage of you talking your way out of a knife with a lecture about supply chains and I want you to know, with my whole disgusting little heart, that was the single hottest thing I have ever seen a human do and I am furious about it."
+  },
+  {
+    "id": "sys_80a3a316",
+    "who": "sys",
+    "node": "a1_docknine",
+    "idx": 0,
+    "text": "dock nine · the bottom of the station"
+  },
+  {
+    "id": "soren_6e8b0731",
+    "who": "soren",
+    "node": "a1_docknine",
+    "idx": 1,
+    "text": "Cathedral of cold light and standing water. I'm on the floor at Gorrik's left, hands easy. Your strike cutter's three jumps out riding the dark."
+  },
+  {
+    "id": "soren_d1bb3d24",
+    "who": "soren",
+    "node": "a1_docknine",
+    "idx": 2,
+    "text": "Your last message was four characters, Captain. ON YOUR CALL. Everything hangs on me sending one word."
+  },
+  {
+    "id": "soren_55accf85",
+    "who": "soren",
+    "node": "a1_docknine",
+    "idx": 3,
+    "text": "The dragon sent a clerk. Narrow rim-pale woman, a slate, no muscle. That's the first wrong note. You don't take a fortune off Cinderhault with one woman and a slate. Unless you know something the floor doesn't."
+  },
+  {
+    "id": "soren_d737695a",
+    "who": "soren",
+    "node": "a1_recite",
+    "idx": 0,
+    "text": "They brought Yenna out. Cleaned up, grey traveling shift now. The brass weight gone — confiscated. She walks the long floor with her chin level and does not look at me. The not-looking costs her. She's protecting me by not giving Gorrik a reason to look twice."
+  },
+  {
+    "id": "soren_6f7f8985",
+    "who": "soren",
+    "node": "a1_recite",
+    "idx": 1,
+    "text": "The clerk circles her once. \"Recite the settling. First three balances. Proof of product.\""
+  },
+  {
+    "id": "soren_ca4d194c",
+    "who": "soren",
+    "node": "a1_recite",
+    "idx": 2,
+    "text": "Captain — that's the trap inside the trap. The second she recites even the first balance out loud, the method's out of the drawer. And the only thing keeping Yenna alive for six years becomes redundant."
+  },
+  {
+    "id": "yenna_66ddaf20",
+    "who": "yenna",
+    "node": "a1_recite",
+    "idx": 3,
+    "text": "No. You don't get it standing up. My father got opened up in his own kitchen for this. I'd rather be a funeral. Cut me. Find out what kind of fish I am."
+  },
+  {
+    "id": "soren_6cde9685",
+    "who": "soren",
+    "node": "a1_wait_wrong",
+    "idx": 0,
+    "text": "I waited. One beat too long."
+  },
+  {
+    "id": "soren_34fe147e",
+    "who": "soren",
+    "node": "a1_wait_wrong",
+    "idx": 1,
+    "text": "The clerk doesn't argue with a funeral. She nods at Gorrik's men. A blade comes up at Yenna's throat to make the recitation happen the fast way — and that's a knife I can't cross the floor in time to stop."
+  },
+  {
+    "id": "soren_8e51c7b2",
+    "who": "soren",
+    "node": "a1_raid_late",
+    "idx": 0,
+    "text": "The cutter comes in late. I make the floor but not in time — I take the blade-arm off Yenna and the cut goes shallow, but the chaos costs more than it should have. The clerk gets up the ramp and gone before a trooper folds her over the rail."
+  },
+  {
+    "id": "soren_0f94c01d",
+    "who": "soren",
+    "node": "a1_raid_late",
+    "idx": 1,
+    "text": "We got Gorrik. We didn't get the clerk, and the clerk was the one thread that knew a routing. Holding cost us the only lead past Gorrik."
+  },
+  {
+    "id": "soren_50387e51",
+    "who": "soren",
+    "node": "a1_raid",
+    "idx": 0,
+    "text": "I said it quiet, into my collar. \"ON.\""
+  },
+  {
+    "id": "soren_c3a4f9b3",
+    "who": "soren",
+    "node": "a1_raid",
+    "idx": 1,
+    "text": "Three jumps of dark folded into one. The strike cutter came in belly-first against the Dock Nine clamps with a sound like the station's spine breaking."
+  },
+  {
+    "id": "soren_a1bc44a5",
+    "who": "soren",
+    "node": "a1_raid",
+    "idx": 2,
+    "text": "Everything at once. The clerk dove for the ramp. Drael drew. Gorrik turned on me with the slow, total understanding of a man learning the name of the thing he let into his house. Tira. You tira."
+  },
+  {
+    "id": "tib_db35c5cd",
+    "who": "tib",
+    "node": "a1_raid",
+    "idx": 3,
+    "text": "I am wired into Dock Nine's bones. Say the word again and I throw every light and clamp on this dock into screaming revolt. It is the plan. It will also lose me my mind a little."
+  },
+  {
+    "id": "soren_f5e714c1",
+    "who": "soren",
+    "node": "a1_crane",
+    "idx": 0,
+    "text": "Tib triggered the Persuader against the master board. Every light, every door, every clamp lost its mind — and so did the gantry crane above the floor. It started swinging its load. A cargo container the size of a bus, in a wide ruinous arc."
+  },
+  {
+    "id": "soren_370a0872",
+    "who": "soren",
+    "node": "a1_crane",
+    "idx": 1,
+    "text": "I've got Gorrik's wrist in both hands and a blade a finger from my throat. We're the same animal and he doesn't fold."
+  },
+  {
+    "id": "soren_357b2cd4",
+    "who": "soren",
+    "node": "a1_crane",
+    "idx": 2,
+    "text": "And the container comes around for its second pass — directly over the spot where Yenna is standing frozen. I can hold Gorrik, or I can reach her. Not both."
+  },
+  {
+    "id": "soren_4e6bf8c3",
+    "who": "soren",
+    "node": "a1_hold_gorrik",
+    "idx": 0,
+    "text": "I held him. Bet on the troopers."
+  },
+  {
+    "id": "soren_bece2f7c",
+    "who": "soren",
+    "node": "a1_hold_gorrik",
+    "idx": 1,
+    "text": "They were three seconds too far up the ramp. Three seconds is the whole distance between a person and a container."
+  },
+  {
+    "id": "soren_f7c7ce6b",
+    "who": "soren",
+    "node": "a1_hold_gorrik",
+    "idx": 2,
+    "text": "I got Gorrik. I got him face-down and roaring in irons, the dragon's gatekeeper at last. And I will spend the rest of the run learning that I chose the cage over the girl, and that the rim always sends you that bill, and it never sends it late."
+  },
+  {
+    "id": "soren_212ccc0a",
+    "who": "soren",
+    "node": "a1_save_yenna",
+    "idx": 0,
+    "text": "I let go of the blade hand. Took Gorrik's whole weight on my chest for one terrible second and threw myself sideways — toward her, not away."
+  },
+  {
+    "id": "soren_133bdc8a",
+    "who": "soren",
+    "node": "a1_save_yenna",
+    "idx": 1,
+    "text": "Hit her at the knees. Took us both down into the cold standing water as the container came through the air we'd been standing in with a sound that shook the teeth out of the night."
+  },
+  {
+    "id": "soren_3aff8e10",
+    "who": "soren",
+    "node": "a1_save_yenna",
+    "idx": 2,
+    "text": "It also came through where Tib was."
+  },
+  {
+    "id": "soren_dd0d04e0",
+    "who": "soren",
+    "node": "a1_tib_down",
+    "idx": 0,
+    "text": "He'd clung to the master board through all of it, riding the chaos like a man surfing a building fire. The swinging load caught the gantry, the gantry caught the board, and the whole rig came down in a fountain of cold sparks."
+  },
+  {
+    "id": "soren_1fbec71c",
+    "who": "soren",
+    "node": "a1_tib_down",
+    "idx": 1,
+    "text": "Tib went into the dark with a yelp I heard over the gunfire and the law and the screaming dock. One small voice, up, and then gone."
+  },
+  {
+    "id": "soren_4d4781a5",
+    "who": "soren",
+    "node": "a1_tib_down",
+    "idx": 2,
+    "text": "Captain. I came up out of the water with Yenna under me and Gorrik taken by your troopers near the ramp. We won. And I didn't hear any of it. I was already running for the heap of dead machinery where a tiny grey-green shape lay too still."
+  },
+  {
+    "id": "soren_3c64d976",
+    "who": "soren",
+    "node": "a1_tib_lives",
+    "idx": 0,
+    "text": "He lives. Badly and loudly and against the odds, the way Tib does everything."
+  },
+  {
+    "id": "tib_3d6f709d",
+    "who": "tib",
+    "node": "a1_tib_lives",
+    "idx": 1,
+    "text": "(barely) Is it on the record that I held the board? I held the board through the whole — write that down, somebody write that—"
+  },
+  {
+    "id": "soren_f5ecb64f",
+    "who": "soren",
+    "node": "a1_tib_lives",
+    "idx": 2,
+    "text": "Then he passed out. Most reasonable thing he'd done all night. He lost the third eye. The small one — the one that twitched when he lied. They can't grow it back."
+  },
+  {
+    "id": "tib_bad896b6",
+    "who": "tib",
+    "node": "a1_tib_lives",
+    "idx": 3,
+    "text": "(later, deniable forever) I have a weak grip. It's medical."
+  },
+  {
+    "id": "soren_621f5700",
+    "who": "soren",
+    "node": "a1_tib_lives",
+    "idx": 4,
+    "text": "He threw himself across that board on purpose, in the open, with the gantry coming down, so the chaos would hold long enough for your team to land. Bravest thing on the dock. He'll deny it to his grave."
+  },
+  {
+    "id": "soren_5c2ac554",
+    "who": "soren",
+    "node": "a1_holt_report",
+    "idx": 0,
+    "text": "We got Gorrik. We got the station. The clerk knew a name and a routing and nothing that led to a face. Roon went to ground. And the Smelter — the whole reason for fourteen months in the mud — stayed exactly where it's always been. Nowhere anyone can reach. One link further up a chain that just got longer."
+  },
+  {
+    "id": "soren_18f9de12",
+    "who": "soren",
+    "node": "a1_holt_report",
+    "idx": 1,
+    "text": "I know what you have to tell me, Captain. My face is on a dozen ledgers now. The Smelter knows what the man who burned Cinderhault looks like. I can't go back under. Not here. Not anywhere on the Verge for a long while."
+  },
+  {
+    "id": "soren_8f4be452",
+    "who": "soren",
+    "node": "a1_holt_report",
+    "idx": 2,
+    "text": "\"Come in, or keep running,\" you said. \"Your call.\" There's always an after. Gorrik was right about that too."
+  },
+  {
+    "id": "soren_c61ac5e9",
+    "who": "soren",
+    "node": "a1_salt",
+    "idx": 0,
+    "text": "Took Yenna out to the Brakkis surface road. She asked to go and I've stopped being able to tell her no. Your people recovered her father's effects from Gorrik's vault. The notes. The glass. And a small set of brass weights, one worn smoother than the rest."
+  },
+  {
+    "id": "soren_ceac9baf",
+    "who": "soren",
+    "node": "a1_salt",
+    "idx": 1,
+    "text": "She held the worn one the whole drive. The worthless one. The one nobody wanted."
+  },
+  {
+    "id": "yenna_d752c7f6",
+    "who": "yenna",
+    "node": "a1_salt",
+    "idx": 2,
+    "text": "They'll come for me. Roon. The Smelter. Whoever's next. As long as the settling's in my head, I'm a drawer somebody wants to open. Six years. It doesn't stop because Gorrik's in a cell."
+  },
+  {
+    "id": "yenna_fbd2575c",
+    "who": "yenna",
+    "node": "a1_throw",
+    "idx": 0,
+    "text": "My father's whole life is in here. The only place it's safe is the one place it gets me killed. So I'm going to do the thing he was too brave or too slow to do. I'm going to forget it. On purpose. Balance by balance. Until I'm just a girl. Worth a funeral and nothing more."
+  },
+  {
+    "id": "yenna_707854ab",
+    "who": "yenna",
+    "node": "a1_throw",
+    "idx": 1,
+    "text": "It's the only way to keep any of him. Let go of all of it, so I get to keep being a person instead of a tool with his name on the drawer."
+  },
+  {
+    "id": "soren_60938fa3",
+    "who": "soren",
+    "node": "a1_throw",
+    "idx": 2,
+    "text": "And she drew her arm back and threw the brass weight out over the dead salt sea, where it fell, small and dull and final, into the white waste her father once promised to take her away from."
+  },
+  {
+    "id": "soren_f5906f2f",
+    "who": "soren",
+    "node": "a1_throw",
+    "idx": 3,
+    "text": "I didn't say anything. There wasn't anything that wouldn't have been a lie or a sermon. I walked out onto the salt and stood beside her and let her not be alone."
+  },
+  {
+    "id": "tib_70f9770d",
+    "who": "tib",
+    "node": "a1_close",
+    "idx": 0,
+    "text": "(from the cab, refusing to admit any feeling whatsoever) Oh, lovely. We're keeping the girl. The dangerous, hunted, planet-sized-trouble girl. I had ONE rule about return addresses."
+  },
+  {
+    "id": "tib_43fa997b",
+    "who": "tib",
+    "node": "a1_close",
+    "idx": 1,
+    "text": "...She gives him a reason to finish the run. Fine. FINE. Write it down. Somebody write that one down too."
+  },
+  {
+    "id": "soren_6df0c648",
+    "who": "soren",
+    "node": "a1_close",
+    "idx": 2,
+    "text": "Three of us in a stolen eel-hauler that won't shed its cold cargo-smell. A burned Marshal, a forgetting chemist, a one-eyed liar. A fortune in nobody's pocket and a dragon still asleep in its cave, three steps up a chain."
+  },
+  {
+    "id": "soren_3e74a867",
+    "who": "soren",
+    "node": "a1_close",
+    "idx": 3,
+    "text": "It wasn't a happy ending. But it was finished, and it was ours, and it was earned. On the rim, that's as close to enough as anyone gets."
+  },
+  {
+    "id": "sys_7a353ad9",
+    "who": "sys",
+    "node": "a2_open",
+    "idx": 0,
+    "text": "six weeks later · coram halt · clear water at last"
+  },
+  {
+    "id": "soren_8ae86e8b",
+    "who": "soren",
+    "node": "a2_open",
+    "idx": 1,
+    "text": "First place on the long routes where the water comes out of the tap clear, Captain. I've decided that's as good a definition of arriving as any. Six weeks. Longest I've stayed anywhere with my own face since before the mud."
+  },
+  {
+    "id": "soren_0b668758",
+    "who": "soren",
+    "node": "a2_open",
+    "idx": 2,
+    "text": "I keep catching myself enjoying it. Feels like leaving a window unlatched."
+  },
+  {
+    "id": "tib_413e3770",
+    "who": "tib",
+    "node": "a2_open",
+    "idx": 3,
+    "text": "I built a new rig. The Persuader Two: This Time It's Personal. It is a sequel and sequels are allowed to be about revenge. I held the board at Dock Nine ON PURPOSE, by the way. The lost eye was the cowardly one. We're better off."
+  },
+  {
+    "id": "soren_4c37a46c",
+    "who": "soren",
+    "node": "a2_boy",
+    "idx": 0,
+    "text": "A boy came in on a flatbed at shift change. Khel kid, sixteen at most. Koro — the runner who fetches for the dock crews, always laughing. Wasn't laughing now. Shaking the way a thing shakes when something inside it is coming apart."
+  },
+  {
+    "id": "soren_57426d9d",
+    "who": "soren",
+    "node": "a2_boy",
+    "idx": 1,
+    "text": "Clinic's one room, one exhausted physician. She says: half-cut glass. Worse than raw. Six in two months, he's the youngest. \"Whoever used to settle it right stopped. Now the whole route's drinking glass.\""
+  },
+  {
+    "id": "yenna_60982a5b",
+    "who": "yenna",
+    "node": "a2_boy",
+    "idx": 2,
+    "text": "I stopped. That's me. I'm whoever stopped."
+  },
+  {
+    "id": "soren_a97bad79",
+    "who": "soren",
+    "node": "a2_confess",
+    "idx": 0,
+    "text": "I never did that arithmetic, Captain. The thing keeping the rim's poison from being a slower poison was one woman's memory. And she's been deleting it. Balance by balance. To be free."
+  },
+  {
+    "id": "yenna_5ab8826f",
+    "who": "yenna",
+    "node": "a2_confess",
+    "idx": 1,
+    "text": "There's a thing you don't know about what my father made. The smooth settle — riding it, losing a year instead of all of it — that's the halfway point. The part he let people see. Take it one balance further and the glass stops being able to hold to a body at all. It lets go. It comes back out."
+  },
+  {
+    "id": "yenna_d92e6c2b",
+    "who": "yenna",
+    "node": "a2_confess",
+    "idx": 2,
+    "text": "He wasn't making a better high. He was making the thing that pulls it back out of a person who's already drowning. A cure. He'd done it twice on the bench before Gorrik."
+  },
+  {
+    "id": "yenna_c5c345ae",
+    "who": "yenna",
+    "node": "a2_hole",
+    "idx": 0,
+    "text": "Most of it. I think. There's a step near the end I can't find — the hold-time on the second settling. Forty count or sixty. I had it. I got careless on purpose and now there's a hole where the last hold-time used to be."
+  },
+  {
+    "id": "yenna_20d8717d",
+    "who": "yenna",
+    "node": "a2_hole",
+    "idx": 1,
+    "text": "I can make a pull that works. But I burned a piece of the true one, and I don't know if it's gone for a night or gone forever. I might have killed the cure to be free."
+  },
+  {
+    "id": "soren_f592125d",
+    "who": "soren",
+    "node": "a2_hole",
+    "idx": 2,
+    "text": "And the bench — your father's scale, his glass, his notes — the Compact took it after Cinderhault. \"For study.\" It's three jumps and a wall of our own law away from that boy."
+  },
+  {
+    "id": "soren_3b720d56",
+    "who": "soren",
+    "node": "a2_faulk_reveal",
+    "idx": 0,
+    "text": "No. It's closer than three jumps. It's been closer for two weeks and I've been eating pell-cake and pretending I didn't see the post they built on the far side of the water towers."
+  },
+  {
+    "id": "soren_fef05806",
+    "who": "soren",
+    "node": "a2_faulk_reveal",
+    "idx": 1,
+    "text": "Compact Reclamation put a field station on Coram Halt eleven days ago. They didn't follow the polish up the routes, Captain. They followed me. And they brought her father's bench, because somebody figured out exactly what she just told me. They want it made. They just don't want it made free."
+  },
+  {
+    "id": "soren_76b5ff77",
+    "who": "soren",
+    "node": "a2_faulk",
+    "idx": 0,
+    "text": "Reclamation Officer Imre Faulk. Looks like an accountant promoted past the part of the job he was good at. Soft, careful cuffs, tired courtesy. Had tea brought. Real tea."
+  },
+  {
+    "id": "soren_227155c6",
+    "who": "soren",
+    "node": "a2_faulk",
+    "idx": 1,
+    "text": "\"You're going to think the Compact is your enemy,\" he says. \"It isn't. It's just not your friend.\" He's got the bench. And the only living person who can use it sitting across from him."
+  },
+  {
+    "id": "yenna_c61cdce0",
+    "who": "yenna",
+    "node": "a2_faulk",
+    "idx": 2,
+    "text": "You'll make it free. Give it to clinics. Pull the glass out of dying kids on the routes."
+  },
+  {
+    "id": "soren_a14e42d7",
+    "who": "soren",
+    "node": "a2_faulk",
+    "idx": 3,
+    "text": "\"No,\" Faulk says. And here's where it gets hard, Captain, because he isn't lying and he isn't a villain."
+  },
+  {
+    "id": "soren_b7daa04d",
+    "who": "soren",
+    "node": "a2_faulk_math",
+    "idx": 0,
+    "text": "\"Make it free,\" he says, \"and within a month every operator running glass knows their customers can be cured. The glass goes worthless. A dozen Gorriks and one Smelter go to war over the last profitable weeks of a dying market — and that war runs straight through every settlement the routes touch. Including this one.\""
+  },
+  {
+    "id": "soren_b853553a",
+    "who": "soren",
+    "node": "a2_faulk_math",
+    "idx": 1,
+    "text": "\"So we don't make it free. We make it slow. Meter it out. Keep it too scarce to threaten the market all at once. It's ugly. It's the least-dead version of an all-ugly situation. It's the job.\""
+  },
+  {
+    "id": "soren_e7c1c85c",
+    "who": "soren",
+    "node": "a2_faulk_offer",
+    "idx": 0,
+    "text": "\"Here's my offer, and it's real. Miss Sorrel comes into Compact custody — willingly, protected asset, not prisoner. She works the bench under our control, on our schedule. In exchange, the first dose goes to your boy downstairs tonight. One life, free. The rest, metered.\""
+  },
+  {
+    "id": "soren_7805f15c",
+    "who": "soren",
+    "node": "a2_faulk_offer",
+    "idx": 1,
+    "text": "\"It's a better deal than the Smelter's about to offer you. And the Smelter is already on the routes, because you are not the only one who can do the arithmetic. Castor Roon does not bring tea.\""
+  },
+  {
+    "id": "soren_bf8c7954",
+    "who": "soren",
+    "node": "a2_refuse",
+    "idx": 0,
+    "text": "I told him no. The cure doesn't go in a drawer — not Gorrik's, not the Smelter's, not the Compact's."
+  },
+  {
+    "id": "soren_c7ad09ad",
+    "who": "soren",
+    "node": "a2_refuse",
+    "idx": 1,
+    "text": "Faulk looked at me with something close to pity. \"Somebody in this room has to have done the math,\" he said. He wasn't angry. That was the worst of it."
+  },
+  {
+    "id": "soren_6a17ceb0",
+    "who": "soren",
+    "node": "a2_refuse",
+    "idx": 2,
+    "text": "And then the math arrived on its own, the way it does out here. Roon didn't wait for an answer."
+  },
+  {
+    "id": "soren_2bb0820a",
+    "who": "soren",
+    "node": "a2_roon_hits",
+    "idx": 0,
+    "text": "Eleven shooters and a freight skiff, dead middle of the night. The Smelter's math is simpler than Faulk's: a free cure's worthless, a controlled cure's a fortune, and the lever is a violet woman with a bag of brass weights standing in a Compact box arguing ethics."
+  },
+  {
+    "id": "tib_3a2b3cb3",
+    "who": "tib",
+    "node": "a2_roon_hits",
+    "idx": 1,
+    "text": "Eleven on the wire. Skiff signature, heavy. It's Roon — nobody else spends like this for a chemist. I wired the Persuader Two into the post's perimeter board the second we walked in. I trust the Compact about as far as I can throw a water tower."
+  },
+  {
+    "id": "soren_124b39e8",
+    "who": "soren",
+    "node": "a2_roon_hits",
+    "idx": 2,
+    "text": "Faulk's up. Doesn't reach for Yenna, doesn't run. Puts himself between the door and the chemist. Which tells me the last thing I needed to know about Imre Faulk: he means every ugly word, and he'll die standing in front of the asset he refuses to free."
+  },
+  {
+    "id": "soren_b8c079fb",
+    "who": "soren",
+    "node": "a2_firefight",
+    "idx": 0,
+    "text": "Fast and grounded and graceless, the way these things really are. The post's two troopers held the door as long as two troopers can hold a door against eleven, which isn't long."
+  },
+  {
+    "id": "soren_4b28bdf6",
+    "who": "soren",
+    "node": "a2_firefight",
+    "idx": 1,
+    "text": "I got Yenna down behind the bench-crate — her father's actual bench, four steps away the whole time. Put two rounds into the dark, heard one land. Faulk took a round through the shoulder and kept standing."
+  },
+  {
+    "id": "soren_7adff61c",
+    "who": "soren",
+    "node": "a2_firefight",
+    "idx": 2,
+    "text": "Then Roon was in the broken doorway, pistol leveled at the crate, smile like a closing drawer. \"The chemist comes with me. The bench comes with me.\" Captain — he's between us and the only bench on the Verge."
+  },
+  {
+    "id": "soren_a2addf8c",
+    "who": "soren",
+    "node": "a2_rush_wrong",
+    "idx": 0,
+    "text": "Eleven feet of open floor against a leveled pistol. He doesn't miss that."
+  },
+  {
+    "id": "soren_d07fd462",
+    "who": "soren",
+    "node": "a2_rush_wrong",
+    "idx": 1,
+    "text": "But Yenna moved while I was still gathering — threw the bag of weights underhand to Tib and said one word: \"Balance.\" I check the rush, drop flat, and let her play instead. Barely. A round goes through where my chest was."
+  },
+  {
+    "id": "soren_d84eb7d1",
+    "who": "soren",
+    "node": "a2_balance",
+    "idx": 0,
+    "text": "Yenna threw the bag — not at Roon, useless, metal against a pistol — underhand to Tib. He caught it against his chest. And she said the bench word. The working word. A thing that means nothing to Roon and everything to a slicer who watched her measure for six weeks."
+  },
+  {
+    "id": "yenna_71cc0f3c",
+    "who": "yenna",
+    "node": "a2_balance",
+    "idx": 1,
+    "text": "Balance."
+  },
+  {
+    "id": "tib_17258c83",
+    "who": "tib",
+    "node": "a2_balance",
+    "idx": 2,
+    "text": "I don't understand chemistry. I understand that the woman who lost an eye's worth of trust in me at Dock Nine and gave it back anyway just threw me her father in a bag and told me to tip the scale."
+  },
+  {
+    "id": "soren_8ebb0cc4",
+    "who": "soren",
+    "node": "a2_blackout_late",
+    "idx": 0,
+    "text": "A clean angle in a room with eleven shooters is a thing you wait for until it's too late. Roon's finger whitens."
+  },
+  {
+    "id": "soren_c6149104",
+    "who": "soren",
+    "node": "a2_blackout_late",
+    "idx": 1,
+    "text": "Tib didn't wait for me. He made the call I should have. Slammed the rig against the coupling on his own."
+  },
+  {
+    "id": "soren_5669481c",
+    "who": "soren",
+    "node": "a2_blackout",
+    "idx": 0,
+    "text": "Tib dropped the Persuader off the crate and slapped it against the post's main power coupling — the fat unshielded one the Compact bolted in eleven days ago and never meant anyone to touch. Gave it every volt the sequel had."
+  },
+  {
+    "id": "soren_a7fb3e61",
+    "who": "soren",
+    "node": "a2_blackout",
+    "idx": 1,
+    "text": "The lights didn't flicker this time. They went. All of them. The post, the fence, the water-tower beacons. For one held breath the only thing anyone could see was the moon."
+  },
+  {
+    "id": "soren_f8fe8b98",
+    "who": "soren",
+    "node": "a2_blackout",
+    "idx": 2,
+    "text": "In that dark I took Castor Roon's pistol off him the way I took a club off a Khel on a promenade once. One quarter turn. His monologue ended on a note he hadn't planned."
+  },
+  {
+    "id": "soren_cf9e96f1",
+    "who": "soren",
+    "node": "a2_let_roon",
+    "idx": 0,
+    "text": "We didn't keep Roon. That's the cost, the real one. Holding him meant a firefight in the dark with a wounded accountant and a dying boy and a chemist who needed both hands free."
+  },
+  {
+    "id": "soren_18988895",
+    "who": "soren",
+    "node": "a2_let_roon",
+    "idx": 1,
+    "text": "I chose the boy. Let Roon stagger out and find his skiff and run, because the alternative was spending Yenna's hands and Tib's last trick on a man who's only ever the Smelter's voice. The Smelter would just grow another mouth. It didn't feel like wisdom. It felt like the rim taking its cut."
+  },
+  {
+    "id": "soren_26608a30",
+    "who": "soren",
+    "node": "a2_let_roon",
+    "idx": 2,
+    "text": "What we kept was the bench."
+  },
+  {
+    "id": "soren_24b95f3b",
+    "who": "soren",
+    "node": "a2_make_cure",
+    "idx": 0,
+    "text": "By the time the Compact got thin amber emergency power up, Yenna had her father's scale set on the one level surface in the room. Twelve brass weights in a row gone dull gold. Her hands moving with a certainty I'd never seen — a person who's finally stopped pretending she isn't what she is."
+  },
+  {
+    "id": "soren_f03d0a41",
+    "who": "soren",
+    "node": "a2_make_cure",
+    "idx": 1,
+    "text": "They brought Koro up on a board. She worked the smooth version first — the half she can do in her sleep — then pushed it one balance further, into the territory that only lives in her memory. And her hands slowed at the hole."
+  },
+  {
+    "id": "yenna_da6d2563",
+    "who": "yenna",
+    "node": "a2_make_cure",
+    "idx": 2,
+    "text": "The hold-time. I can't — it was forty count or sixty, I burned the difference, I don't—"
+  },
+  {
+    "id": "tib_5c63a6e0",
+    "who": "tib",
+    "node": "a2_fifty",
+    "idx": 0,
+    "text": "It's not chemistry. It's balance. Too heavy it cuts, too light it won't lay down. Sit it in the middle and let it lay down as much as it can. You taught me that watching you measure for six weeks."
+  },
+  {
+    "id": "soren_4fc3de1b",
+    "who": "soren",
+    "node": "a2_fifty",
+    "idx": 1,
+    "text": "She held the second settling for a fifty count. Not the true cure — she knew it even as she did it. A pull with a hole in it. A thing that might buy a poisoned body years instead of pulling the glass clean. An imperfect mercy. The least-dead version. Exactly the thing Faulk said the job always comes down to."
+  },
+  {
+    "id": "soren_060488c4",
+    "who": "soren",
+    "node": "a2_fifty",
+    "idx": 2,
+    "text": "But she put it into the boy. And the shaking slowed. And slowed."
+  },
+  {
+    "id": "soren_a7e8d403",
+    "who": "soren",
+    "node": "a2_fifty",
+    "idx": 3,
+    "text": "Sixteen years old and grey at the edges, Koro opened his eyes and said the most ordinary thing in the universe. \"'M thirsty.\""
+  },
+  {
+    "id": "yenna_94eb7cff",
+    "who": "yenna",
+    "node": "a2_fifty",
+    "idx": 4,
+    "text": "There's water. It's clear. You'll like it."
+  },
+  {
+    "id": "soren_5346c968",
+    "who": "soren",
+    "node": "a2_faulk_lets_go",
+    "idx": 0,
+    "text": "Faulk watched the asset he was authorized to control make the thing he was authorized to meter — free, on a clinic floor, for a sixteen-year-old — and he didn't lift the hand that wasn't pressed to the wound."
+  },
+  {
+    "id": "soren_fecdffe6",
+    "who": "soren",
+    "node": "a2_faulk_lets_go",
+    "idx": 1,
+    "text": "Found me on the roof toward dawn. \"I'm not taking Miss Sorrel into custody. Not a change of heart — everything I said is still true and it's still coming, faster now. You made the cure real and public in the same night. A fact can't be controlled or owned. It can only be chased.\""
+  },
+  {
+    "id": "soren_39322f94",
+    "who": "soren",
+    "node": "a2_faulk_lets_go",
+    "idx": 2,
+    "text": "\"There's no point taking a drawer once the thing inside it has walked out on its own legs and gotten a drink of water. I'll file that the asset was lost in hostile action. Tell Holt she's a fool and she's right and I'll deny saying either.\""
+  },
+  {
+    "id": "yenna_901673c8",
+    "who": "yenna",
+    "node": "a2_close",
+    "idx": 0,
+    "text": "It's not the cure. It's the pull with a hole in it. I burned the true one. I don't get to be free, Halgrave. I get to be useful. I spent six years thinking those were the same prison. They're not. One of them I chose."
+  },
+  {
+    "id": "soren_fc4d4f39",
+    "who": "soren",
+    "node": "a2_close",
+    "idx": 1,
+    "text": "Below us a sixteen-year-old was drinking clear water and asking for his brother. Out on the routes, a freight skiff was carrying Roon back to a master who let a key sit on a shelf for six years because a locked drawer could always, eventually, be bought."
+  },
+  {
+    "id": "soren_00ffd765",
+    "who": "soren",
+    "node": "a2_close",
+    "idx": 2,
+    "text": "A key you can buy. A cure you can't. He's going to have to come down, Captain. The thing he can't buy, he has to come kill."
+  },
+  {
+    "id": "tib_b9d39240",
+    "who": "tib",
+    "node": "a2_close",
+    "idx": 3,
+    "text": "Then we'd better learn what it looks like before it learns what we do. The cave is about to be empty."
+  },
+  {
+    "id": "sys_8365b3e3",
+    "who": "sys",
+    "node": "a3_open",
+    "idx": 0,
+    "text": "nineteen days later · the cure walks the routes"
+  },
+  {
+    "id": "soren_e0a8ebfe",
+    "who": "soren",
+    "node": "a3_open",
+    "idx": 1,
+    "text": "It's working, Captain. Koro fetches water for the other patients, double-thumbed hands careful with the cups, laughing again. Every trucker leaves carrying the story a little further. The price of street glass has cracked in half and then in half again."
+  },
+  {
+    "id": "soren_66e37900",
+    "who": "soren",
+    "node": "a3_open",
+    "idx": 2,
+    "text": "Yenna's made eleven more doses off the bench. Every one with a hole in it. Every one works anyway — slows the glass, buys years. \"You don't get a war when the prize stops being worth fighting over,\" she says. \"You get a collapse. The operators are just walking off.\""
+  },
+  {
+    "id": "soren_f836f5d3",
+    "who": "soren",
+    "node": "a3_open",
+    "idx": 3,
+    "text": "But one buyer didn't walk off. One thing stayed in the dark across two stations and a dead sea. Roon found us on the nineteenth day. Came alone. Both hands open."
+  },
+  {
+    "id": "soren_b96e1825",
+    "who": "soren",
+    "node": "a3_roon_msg",
+    "idx": 0,
+    "text": "\"I'm a messenger,\" Roon says. A face that's aged a decade. \"The Smelter wants to see her.\""
+  },
+  {
+    "id": "soren_7fa817c2",
+    "who": "soren",
+    "node": "a3_roon_msg",
+    "idx": 1,
+    "text": "I said the Smelter wants her dead. \"No,\" he says — flat, first time in three encounters with no angle folded in. \"Wants to SEE her. There's a difference, and you're going to want to learn it, because I spent eleven years not learning it and it cost me everything.\""
+  },
+  {
+    "id": "soren_5e801218",
+    "who": "soren",
+    "node": "a3_roon_msg",
+    "idx": 2,
+    "text": "\"Brakkis. The old refinery. Six days. Bring the chemist, bring the bench, bring the rat. The Smelter doesn't care anymore who comes.\" Then, at the door, the strangest thing: \"It's not what you think it is. The cave. It never was.\""
+  },
+  {
+    "id": "tib_2ccbf16f",
+    "who": "tib",
+    "node": "a3_roon_msg",
+    "idx": 3,
+    "text": "It is obviously, structurally, load-bearingly a trap. All fifteen of my dialects have a word for \"don't.\""
+  },
+  {
+    "id": "soren_6dc6c0f5",
+    "who": "soren",
+    "node": "a3_run_offer",
+    "idx": 0,
+    "text": "I said it as a kindness and we both knew it was a lie."
+  },
+  {
+    "id": "yenna_3d8b83cb",
+    "who": "yenna",
+    "node": "a3_run_offer",
+    "idx": 1,
+    "text": "You don't want to run. You want to finish the run. There's a difference. Your father never got to learn it. You've been learning it since the day you sat at Ladle's and ate a whole fish while a girl got dragged past your table, and didn't move until you'd decided exactly how much you were willing to lose."
+  },
+  {
+    "id": "soren_6cfe17b7",
+    "who": "soren",
+    "node": "a3_run_offer",
+    "idx": 2,
+    "text": "There's no finishing a run you keep turning away from at the last stop. You go back to the beginning, or you carry the beginning the rest of your life like a debt nobody told you about. We're going to Brakkis."
+  },
+  {
+    "id": "soren_70572ae0",
+    "who": "soren",
+    "node": "a3_two_stops",
+    "idx": 0,
+    "text": "Two stops on the way. First — Gorrik. Compact holding cell, transit block. Smaller than the last time. A cell does that."
+  },
+  {
+    "id": "soren_dde79feb",
+    "who": "soren",
+    "node": "a3_two_stops",
+    "idx": 1,
+    "text": "I told him the cure lived. The thing Oren Sorrel was raving about in his kitchen — the glass letting go. \"You broke into a house to steal the petty cash, killed the man who built the bank, and the bank opened anyway. That's your monument, Gorrik.\""
+  },
+  {
+    "id": "soren_0b3052e2",
+    "who": "soren",
+    "node": "a3_two_stops",
+    "idx": 2,
+    "text": "He was quiet a long time. Then: \"The runner. Koro. He's Drael's brother.\" Something crossed his face and stayed this time. \"You've got the dragon's address. So which is it — going to Brakkis to kill the thing, or to finish something? Those are different fish. Most men only find out which at the very last stop.\""
+  },
+  {
+    "id": "soren_f6bb79fe",
+    "who": "soren",
+    "node": "a3_drael_stop",
+    "idx": 0,
+    "text": "Second stop cost two days I didn't have, three jumps the wrong way. Drael. Awaiting trial for running glass under Gorrik. Bad arm still carrying the memory of a noodle cart."
+  },
+  {
+    "id": "soren_93874093",
+    "who": "soren",
+    "node": "a3_drael_stop",
+    "idx": 1,
+    "text": "No preamble. It was the only mercy I had. \"Koro's alive. He rode the new glass, it nearly took him. There's a cure now — your chemist's daughter made it. He's on Coram Halt. He fetches water. He laughs.\""
+  },
+  {
+    "id": "soren_1388a212",
+    "who": "soren",
+    "node": "a3_drael_stop",
+    "idx": 2,
+    "text": "The worn-out hate went out of his face all at once. The big enforcer who laughed exactly once in an eel-hauler cab put his head against the cold bars and wept, silent, the way men weep when they've been certain of a grief so long that being wrong about it breaks something load-bearing."
+  },
+  {
+    "id": "soren_5a4fe74c",
+    "who": "soren",
+    "node": "a3_drael_stop",
+    "idx": 3,
+    "text": "\"He laughs,\" Drael said. Not a question. He just needed to say it out loud to believe it. Somebody finally got somebody off the routes."
+  },
+  {
+    "id": "soren_a1d26e86",
+    "who": "soren",
+    "node": "a3_brakkis",
+    "idx": 0,
+    "text": "Brakkis is exactly as dead as I left it. The salt sea white and cracked to the curve of the world. The old refinery hanging off nothing at the edge of it. We came down the surface road six days early. Tib scanning, finding nothing, which scares him more than finding something."
+  },
+  {
+    "id": "soren_76c4a930",
+    "who": "soren",
+    "node": "a3_brakkis",
+    "idx": 1,
+    "text": "Yenna got out before I killed the engine and walked onto the salt. Forty paces. Crouched and put her violet hand flat. \"Here. About here. I threw it about here.\" The weight. With the true hold-time stamped on the side."
+  },
+  {
+    "id": "soren_c7e37294",
+    "who": "soren",
+    "node": "a3_dig",
+    "idx": 0,
+    "text": "I started digging anyway. Both hands, slow. After a moment she dug beside me. And Tib swore and climbed down and waddled out and dug too — small green-grey hands throwing salt — because the alternative was sitting in a hauler while the only two people he's never been fired from clawed at a dead sea."
+  },
+  {
+    "id": "soren_ebc1938c",
+    "who": "soren",
+    "node": "a3_dig",
+    "idx": 1,
+    "text": "Found it at the bottom of the third hole, an hour in. A small brass weight, crusted grey-green, worn smooth on every face. She cleaned it with her thumb. Turned it to the moonlight to find the stamped face."
+  },
+  {
+    "id": "soren_b495e10a",
+    "who": "soren",
+    "node": "a3_dig",
+    "idx": 2,
+    "text": "The number was gone. Not faded. Gone. A year in the salt ate the soft brass down to nothing. The one secret, dissolved into a dead sea."
+  },
+  {
+    "id": "yenna_700305c3",
+    "who": "yenna",
+    "node": "a3_dig",
+    "idx": 3,
+    "text": "I got him back and I lost him in the same hour. That's the rim. The complete cure died in a kitchen with my father, and what's left just dissolved in a dead ocean. There's only the one with the hole in it now. Forever."
+  },
+  {
+    "id": "soren_e150248f",
+    "who": "soren",
+    "node": "a3_lights",
+    "idx": 0,
+    "text": "She put the worn weight in the bag with the other twelve, where it'll balance scales for the rest of her life and never give up its one number again. Stood. Wiped the salt off her knees."
+  },
+  {
+    "id": "soren_080adf7c",
+    "who": "soren",
+    "node": "a3_lights",
+    "idx": 1,
+    "text": "And out across the dead flat, from the dark mouth of the old refinery, lights came on. The dragon came down early too."
+  },
+  {
+    "id": "soren_4869f465",
+    "who": "soren",
+    "node": "a3_smelter",
+    "idx": 0,
+    "text": "She was the oldest thing I've ever seen, Captain. And she was the same as Yenna. Those two facts arrived together and never came apart."
+  },
+  {
+    "id": "soren_b008dd08",
+    "who": "soren",
+    "node": "a3_smelter",
+    "idx": 1,
+    "text": "Senne. Violet gone ashen, gone grey. The silver lines cracked white across her like a dry lakebed. White hair thin to the scalp. In a powered chair under a single working light. Dying the way the very old and the very poisoned die. Her name is Senne. She rode refined glass for decades until the smooth settle stopped buying her anything at all."
+  },
+  {
+    "id": "soren_ecb2aa19",
+    "who": "soren",
+    "node": "a3_smelter",
+    "idx": 2,
+    "text": "\"Oren's girl,\" she says. \"You have his hands. I funded him. Forty years ago, when the reef glass was nothing. I paid for his first bench. His first scales. The weights.\""
+  },
+  {
+    "id": "soren_fad344c5",
+    "who": "soren",
+    "node": "a3_smelter2",
+    "idx": 0,
+    "text": "\"I built an empire to afford a thing that only delays the bill. By the time I went looking for the man who could make the glass let go, Gorrik had killed him in a kitchen over the small half. I've spent six years and a fortune trying to buy the one thing on this rim that could keep me alive — and you, child, gave it away for free.\""
+  },
+  {
+    "id": "yenna_d35e01f6",
+    "who": "yenna",
+    "node": "a3_smelter2",
+    "idx": 1,
+    "text": "Then why summon me? If you know you can't buy it?"
+  },
+  {
+    "id": "soren_2f342066",
+    "who": "soren",
+    "node": "a3_smelter2",
+    "idx": 2,
+    "text": "\"Because I cannot buy it. That's the whole of it. I've spent my life learning how to take. You made the one thing I needed into the single thing a taker cannot have — a gift. I'm too far gone for the half you're handing out free. I need the whole of it, or I die in this chair. So I'm asking. Not as the Smelter. There's no Smelter left.\""
+  },
+  {
+    "id": "soren_99ffb40a",
+    "who": "soren",
+    "node": "a3_show_weight",
+    "idx": 0,
+    "text": "And Yenna took out the worn grey-green weight, the one we dug from the salt an hour ago, and held it up into the single light so the ancient dying woman could see the smooth blank face where a number used to be."
+  },
+  {
+    "id": "yenna_869f45f5",
+    "who": "yenna",
+    "node": "a3_show_weight",
+    "idx": 1,
+    "text": "It's gone. He stamped the true hold-time here forty years ago so he'd never lose it. I threw it in the sea a year ago to lose him. The salt ate the number. There is no one alive who will ever pull the glass clean again. I can't save you. Nobody can. You spent a lifetime making sure the only man who could was dead before he finished."
+  },
+  {
+    "id": "soren_0c9c7694",
+    "who": "soren",
+    "node": "a3_show_weight",
+    "idx": 2,
+    "text": "What crossed the ancient face wasn't rage. I'd braced for rage. It was older and quieter and far worse — the look of a person handed, with total finality, the bill for a life, and finding it exactly as large as they always feared and refused to read."
+  },
+  {
+    "id": "soren_f222bb2d",
+    "who": "soren",
+    "node": "a3_show_weight",
+    "idx": 3,
+    "text": "That was when Roon moved. Out of the dark at the edge of the light. Pistol on Yenna. \"She comes with me. The market's not dead, it just needs a new—\""
+  },
+  {
+    "id": "soren_84b0682b",
+    "who": "soren",
+    "node": "a3_smelter_shoots",
+    "idx": 0,
+    "text": "The Smelter shot him. From the chair, with a small gun she'd had in her lap the whole time. One round, clean. Castor Roon folded into the standing water with a look of pure betrayed accounting on his face. A voice silenced at last by the throat it spoke for."
+  },
+  {
+    "id": "soren_bed0e694",
+    "who": "soren",
+    "node": "a3_smelter_shoots",
+    "idx": 1,
+    "text": "She let the gun drop into the water after him. \"Eleven years he stood in my dark and he learned nothing. I will not let the last thing I do be teaching one more man to take.\""
+  },
+  {
+    "id": "soren_f51ee86f",
+    "who": "soren",
+    "node": "a3_smelter_shoots",
+    "idx": 2,
+    "text": "\"Bring me the half-cure, child. The one with the hole. I know it won't save me. But I have never once in my life been given a thing. Everything I held, I took. I'd like — before the chair — to find out what the other way feels like. Even if it's too late. Especially if it's too late.\""
+  },
+  {
+    "id": "soren_6e095b11",
+    "who": "soren",
+    "node": "a3_gift",
+    "idx": 0,
+    "text": "Yenna knelt by her father's bench — Tib had hauled it in off the cab without being asked — and settled reef glass all the way down to the hole and no further. The imperfect pull. The year-buying mercy. And she carried it across the standing water in her two steady hands. Oren's hands. And gave it, freely, to the oldest and most poisoned thing on the rim."
+  },
+  {
+    "id": "soren_acc7f213",
+    "who": "soren",
+    "node": "a3_gift",
+    "idx": 1,
+    "text": "The Smelter took it the way you take a thing you've decided to receive instead of seize. Drank it down. It was, as everyone in the room knew, far too late."
+  },
+  {
+    "id": "soren_595263a1",
+    "who": "soren",
+    "node": "a3_gift",
+    "idx": 2,
+    "text": "But the trembling eased. For a little while. And the ancient Senne looked at the violet girl who'd given her the one un-bought thing of her whole long life, and she did the thing I'll carry off this dead sea and never quite set down. She said thank you. Out loud. Like a word she was using for the first time and testing the weight of."
+  },
+  {
+    "id": "soren_3d51dbd6",
+    "who": "soren",
+    "node": "a3_gift",
+    "idx": 3,
+    "text": "She was gone before the moons set."
+  },
+  {
+    "id": "soren_de0efdb5",
+    "who": "soren",
+    "node": "a3_holt_end",
+    "idx": 0,
+    "text": "I stood over the empty chair a long while with the slug-gun still low. Never raised. I came down the surface road with a gun and a grudge and fourteen months of reasons, and I didn't fire it. The dragon died anyway, of itself, the way the rim kills everything it makes."
+  },
+  {
+    "id": "soren_74506c8f",
+    "who": "soren",
+    "node": "a3_holt_end",
+    "idx": 1,
+    "text": "Gorrik asked me whether I was coming to kill the thing or to finish something. I carried a weapon to the last stop and used my hands to hold a bench instead. Whatever kind of fish that makes me, it wasn't the kind that needed the gun. And it never had been."
+  },
+  {
+    "id": "soren_bc68975b",
+    "who": "soren",
+    "node": "a3_holt_choice",
+    "idx": 0,
+    "text": "Captain Holt came down to Brakkis the next morning. Burned the last of a career she'd spent three times over keeping me standing. She can't put me back under — my face is on a dozen ledgers. The Compact's done with me whether it likes it or not."
+  },
+  {
+    "id": "soren_28104880",
+    "who": "soren",
+    "node": "a3_holt_choice",
+    "idx": 1,
+    "text": "\"But I can do one thing on my way out the door,\" she said. So this is your call too, Captain — the last one. The pull. The cure with a hole in it."
+  },
+  {
+    "id": "soren_76592973",
+    "who": "soren",
+    "node": "a3_spring",
+    "idx": 0,
+    "text": "They'll demote her for it. Routes duty. The rim. The worst posting in the Compact. \"I hear the water's clear out here, though,\" she said. \"In places.\" It is, Captain. In places."
+  },
+  {
+    "id": "soren_11e2bded",
+    "who": "soren",
+    "node": "a3_spring",
+    "idx": 1,
+    "text": "The collapse ran its course. The operators walked off. The half-cut poison got rare, then a story old truckers told. It didn't become a good rim. It became a rim where the worst thing that happened to people stopped being the only thing that could. On the Verge, that's the most anyone ever got."
+  },
+  {
+    "id": "soren_58a72423",
+    "who": "soren",
+    "node": "a3_spring",
+    "idx": 2,
+    "text": "Drael got out — the cure has a way of softening a sentence. Came to Coram Halt and drank clear water with the brother he'd been so certain he'd lost. Got somebody off the routes after all."
+  },
+  {
+    "id": "soren_f264b9e2",
+    "who": "soren",
+    "node": "a3_spring2",
+    "idx": 0,
+    "text": "We finished the run in the spring. Past where the settlements need the road. A spring that runs clear and cold out of a green-grey hillside — the thing my father promised and never delivered. The long run. The end of the road that turned out not to be an end so much as a stopping place a man finally let himself stop at."
+  },
+  {
+    "id": "tib_39d0233c",
+    "who": "tib",
+    "node": "a3_spring2",
+    "idx": 1,
+    "text": "(having wired the water-tower speakers to play a freight-hauler jingle he swears is celebratory) I am always early. It's the bravest thing about me. The eye I lost was the one that wanted to be late. We're better off. Drink your water, Halgrave. You've been threatening to finish this run for two years. Finish it."
+  },
+  {
+    "id": "soren_9bbcfdec",
+    "who": "soren",
+    "node": "a3_spring2",
+    "idx": 2,
+    "text": "Yenna laughed — a real one, easy now, the silver lines catching the spring light. Thirteen brass weights in the bag, the worn blank one among them. Her father returned to her hand with his last secret gone and his steady hands still in hers every time she settles the glass for someone the rim gave up on."
+  },
+  {
+    "id": "soren_b66fccff",
+    "who": "soren",
+    "node": "a3_drink",
+    "idx": 0,
+    "text": "There was never more road than time. There was only ever the question of whether, when the water finally came up clear, you were the kind of man who let himself stop and drink — or the kind who left the window unlatched and told himself arriving was a thing that happened to other people."
+  },
+  {
+    "id": "soren_f1e3b4ab",
+    "who": "soren",
+    "node": "a3_drink",
+    "idx": 1,
+    "text": "I told a caged enforcer I'd find out what kind of fish I was when I got to the last stop. I'm at the last stop. The dragon's dead, the cure is free, the cycle's broken for one Khel family, and a sixteen-year-old laughs somewhere up the routes."
+  },
+  {
+    "id": "soren_f402a447",
+    "who": "soren",
+    "node": "a3_drink",
+    "idx": 2,
+    "text": "I'm cupping my hands in the spring now. Drinking it the way I do everything. Slow. Both hands. Only this time the slowness isn't discipline. It isn't a tell. It's just a man at the end of a run his father never got to finish, finding, for the first time in his life, that he has all of it."
+  },
+  {
+    "id": "soren_c93b0f2b",
+    "who": "soren",
+    "node": "a3_drink",
+    "idx": 3,
+    "text": "The water's clear, Captain. And I finally have nowhere left to be. Channel's closing. Thank you for running me home."
+  }
+]

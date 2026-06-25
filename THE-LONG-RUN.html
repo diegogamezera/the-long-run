@@ -1119,6 +1119,28 @@ const snd={
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function scrollDown(){ chat.scrollTop=chat.scrollHeight+400; }
 
+/* VOICE (per-line audio clips) — dormant until audio/ready.json exists */
+let HAS_VOICE=false, AUDIO_EXT='mp3', curAudio=null;
+function fnv1a(str){
+  let h=0x811c9dc5;
+  for(let i=0;i<str.length;i++){ h^=str.charCodeAt(i); h=Math.imul(h,0x01000193)>>>0; }
+  return ('0000000'+h.toString(16)).slice(-8);
+}
+function audioId(who,text){ return who+'_'+fnv1a(who+'|'+text.replace(/<[^>]+>/g,'')); }
+function stopAudio(){ if(curAudio){ try{curAudio.pause();}catch(e){} curAudio=null; } }
+function speak(who,text){
+  return new Promise(resolve=>{
+    if(!soundOn||!HAS_VOICE||who==='sys'){ resolve(false); return; }
+    const a=new Audio('audio/'+audioId(who,text)+'.'+AUDIO_EXT);
+    curAudio=a; let done=false;
+    const fin=ok=>{ if(done) return; done=true; if(curAudio===a) curAudio=null; resolve(ok); };
+    a.addEventListener('ended',()=>fin(true));
+    a.addEventListener('error',()=>fin(false));
+    (async()=>{ while(!done){ if(skipReq){ stopAudio(); fin(true); break; } await sleep(60); } })();
+    a.play().catch(()=>fin(false));
+  });
+}
+
 function setCover(t){
   state.cover=t;
   const el=$('#threatTxt'); if(el) el.innerHTML='COVER: <b>'+t+'</b>';
@@ -1251,10 +1273,12 @@ async function goto(id){
   if(node.messages){
     for(const msg of node.messages){
       const pre=msg.delay?Math.min(msg.delay,2600):lenFactor(msg.text);
-      await typing(msg.who, skipReq?120:pre);
+      const typeMs=HAS_VOICE?Math.min(pre,650):pre;
+      await typing(msg.who, skipReq?120:typeMs);
       addMessage(msg.who,msg.text);
-      if(msg.pause&&!skipReq) await waitSkip(650);
-      else await sleep(120);
+      const played=await speak(msg.who,msg.text);
+      if(played){ if(msg.pause&&!skipReq) await waitSkip(350); else await sleep(80); }
+      else { if(msg.pause&&!skipReq) await waitSkip(650); else await sleep(120); }
     }
   }
   chat.onclick=null; busy=false;
@@ -1308,7 +1332,7 @@ function hideEnd(){ endScr.classList.add('hide'); }
 
 function save(){ try{ localStorage.setItem(SAVE_KEY,JSON.stringify({node:state.node,checkpoint:state.checkpoint,cover:state.cover})); }catch(e){} }
 function load(){ try{ const s=JSON.parse(localStorage.getItem(SAVE_KEY)); return s&&s.node?s:null; }catch(e){ return null; } }
-function wipe(){ try{ localStorage.removeItem(SAVE_KEY); }catch(e){} state={node:null,checkpoint:'start',history:[],cover:'INTACT'}; chat.innerHTML=''; }
+function wipe(){ try{ localStorage.removeItem(SAVE_KEY); }catch(e){} stopAudio(); state={node:null,checkpoint:'start',history:[],cover:'INTACT'}; chat.innerHTML=''; }
 
 function startGame(fromNode){
   title.style.display='none'; hdr.style.visibility='visible'; chat.innerHTML='';
@@ -1338,6 +1362,11 @@ function toast(t){
   clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),1600);
 }
 refreshSoundLabel(); checkContinue();
+/* auto-detect generated voice clips */
+fetch('audio/ready.json',{cache:'no-store'})
+  .then(r=>r.ok?r.json():null)
+  .then(j=>{ if(j&&j.ready){ HAS_VOICE=true; AUDIO_EXT=j.format||'mp3'; } })
+  .catch(()=>{});
 })();
 </script>
 </body>
